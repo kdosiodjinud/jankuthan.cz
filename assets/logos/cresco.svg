@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <defs>
+    <linearGradient id="cresco-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7986CB"/>
+      <stop offset="100%" style="stop-color:#5C6BC0"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="10" fill="url(#cresco-grad)"/>
+  <text x="24" y="30" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">CG</text>
+</svg>
