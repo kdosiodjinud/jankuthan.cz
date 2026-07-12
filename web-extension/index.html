@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>vysokeskoly.cz – demo integrace chatbota</title>
+  <style>
+    :root { --brand:#008888; --brand2:#007b7b; --link:#00a0c0; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #2d4156; background: #f2f6f6; line-height: 1.6;
+    }
+    header {
+      background: var(--brand);
+      color: #fff; padding: 64px 24px; text-align: center;
+    }
+    header h1 { margin: 0 0 10px; font-size: 30px; }
+    header p { margin: 0; opacity: .9; font-size: 16px; }
+    main { max-width: 760px; margin: 0 auto; padding: 40px 24px 120px; }
+    h2 { font-size: 20px; margin-top: 40px; }
+    .card {
+      background: #fff; border: 1px solid #ececf3; border-radius: 14px;
+      padding: 22px 24px; margin-top: 16px; box-shadow: 0 2px 10px rgba(0,0,0,.03);
+    }
+    code, pre {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 13px;
+    }
+    pre {
+      background: #1e1e2e; color: #e6e6f0; padding: 16px 18px; border-radius: 10px;
+      overflow-x: auto;
+    }
+    .hint { color: #6b7280; font-size: 14px; }
+    .arrow { color: var(--brand); font-weight: 600; }
+    /* kontejner pro inline (in-page) variantu – velikost si určuje stránka, chat ji vyplní */
+    #vs-chat { height: 600px; max-height: calc(100vh - 120px); margin-top: 16px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎓 vysokeskoly.cz</h1>
+    <p>Demo stránka s integrovaným AI chatbotem</p>
+  </header>
+
+  <main>
+    <div class="card">
+      <p style="margin-top:0">
+        Tahle stránka slouží k <strong>vyzkoušení chat widgetu</strong>. Vpravo dole je plovoucí
+        tlačítko <span class="arrow">💬</span> — klikni na něj a zeptej se poradce třeba na
+        <em>„Kolik stojí život vysokoškoláka?“</em>
+      </p>
+      <p class="hint">
+        Widget je připojený na živý n8n endpoint, který dělá sémantické vyhledávání nad
+        naembedovanými články a odpověď generuje jazykovým modelem. Odpověď vždy odkazuje na
+        zdrojový článek.
+      </p>
+    </div>
+
+    <h2>Jak se widget integruje</h2>
+    <div class="card">
+      <p>Do libovolné stránky stačí vložit jediný snippet před <code>&lt;/body&gt;</code>:</p>
+      <pre>&lt;script src="widget.js"
+        data-endpoint="https://n8n.reddwarf.cloud/webhook/chat"
+        data-title="Poradce VŠ"
+        defer&gt;&lt;/script&gt;</pre>
+      <p class="hint">
+        Snippet načte chatbox, sám si vykreslí tlačítko i panel a připojí se na zadaný endpoint.
+        Žádné další závislosti nejsou potřeba.
+      </p>
+    </div>
+
+    <h2>Nastavitelné atributy</h2>
+    <div class="card">
+      <ul style="margin:0;padding-left:20px">
+        <li><code>data-endpoint</code> – URL chatového webhooku (povinné v produkci)</li>
+        <li><code>data-title</code> – titulek v hlavičce panelu</li>
+        <li><code>data-welcome</code> – uvítací zpráva</li>
+        <li><code>data-allowed-host</code> – doména, na kterou smí vést odkazy (výchozí <code>vysokeskoly.cz</code>)</li>
+      </ul>
+    </div>
+
+    <h2>Dvě varianty vložení</h2>
+    <div class="card">
+      <p style="margin-top:0">
+        Widget umí dvě podoby – <strong>plovoucí bublinu</strong> (vpravo dole na této stránce)
+        a <strong>vloženou přímo do stránky</strong> (níže). Liší se jen atributy snippetu.
+      </p>
+      <p class="hint">
+        Plovoucí: bez <code>data-mode</code>. In-page: <code>data-mode="inline"</code> +
+        <code>data-target="#vs-chat"</code>. V inline režimu je chat rovnou otevřený, má větší prostor
+        a křížek konverzaci <strong>resetuje</strong> (nezavírá).
+      </p>
+    </div>
+
+    <h2>Varianta „in-page“ (vložená do stránky)</h2>
+    <div id="vs-chat"></div>
+  </main>
+
+  <!-- ===== Varianta 1: plovoucí bublina (vpravo dole) ===== -->
+  <script src="widget.js"
+          data-endpoint="https://n8n.reddwarf.cloud/webhook/chat"
+          data-title="Poradce VŠ"
+          defer></script>
+
+  <!-- ===== Varianta 2: vložená přímo do stránky (kontejner #vs-chat) ===== -->
+  <script src="widget.js"
+          data-endpoint="https://n8n.reddwarf.cloud/webhook/chat"
+          data-mode="inline"
+          data-target="#vs-chat"
+          data-title="Poradce VŠ"
+          defer></script>
+</body>
+</html>
