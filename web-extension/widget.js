@@ -311,17 +311,34 @@
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: text, sessionId: SESSION_ID, tenant: CFG.tenant })
     })
-      .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status)); })
+      .then(function (r) {
+        if (!r.ok) return Promise.reject(new Error("HTTP " + r.status));
+        // Tělo čteme jako text: prázdná nebo nevalidní odpověď NENÍ chyba spojení
+        // (backend ji vrací se stavem 200, když se odpověď nepodaří dokončit).
+        return r.text().then(function (t) {
+          try {
+            if (t) return JSON.parse(t);
+          } catch (e) { /* propadne níž na incomplete */ }
+          var err = new Error("incomplete response");
+          err.incomplete = true;
+          throw err;
+        });
+      })
       .then(function (data) {
         if (gen !== convGen) return; // mezitím proběhl reset → odpověď zahodit
         typing.remove();
         addMsg((data && data.reply) ? data.reply : "Omlouvám se, teď se mi nepodařilo odpovědět.", "bot");
         addCards(data && data.cards);
       })
-      .catch(function () {
+      .catch(function (err) {
         if (gen !== convGen) return;
         typing.remove();
-        addMsg("Jejda, spojení se nezdařilo. Zkus to prosím za chvíli znovu.", "bot");
+        addMsg(
+          (err && err.incomplete)
+            ? "Tuhle odpověď se mi nepodařilo dokončit. Zkus mi ji prosím poslat znovu – klidně trochu jednodušší."
+            : "Jejda, spojení se nezdařilo. Zkus to prosím za chvíli znovu.",
+          "bot"
+        );
       })
       .finally(function () {
         if (gen !== convGen) return; // reset už stav uklidil za nás
