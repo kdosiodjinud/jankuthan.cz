@@ -131,6 +131,16 @@ body {
   text-decoration: underline;
 }
 
+.homepage__contact .homepage__shop {
+  margin-top: 1.25rem;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.homepage__contact .homepage__shop:hover {
+  text-decoration: none;
+}
+
 .homepage__social {
   display: flex;
   gap: 1rem;

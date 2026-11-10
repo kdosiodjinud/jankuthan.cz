@@ -1,6 +1,6 @@
 ---
 name: eshop
-description: Správa skrytého e-shopu na jankuthan.cz (/eshop) – přidání, úprava a odebrání produktu. Použij, když uživatel chce přidat produkt do e-shopu (i z odkazu na Aukro nebo jiný portál), změnit cenu, popis nebo fotky, nebo produkt odebrat.
+description: Správa e-shopu na jankuthan.cz (/eshop) – přidání, úprava a odebrání produktu. Použij, když uživatel chce přidat produkt do e-shopu (i z odkazu na Aukro nebo jiný portál), změnit cenu, popis nebo fotky, nebo produkt odebrat.
 ---
 
 # E-shop na jankuthan.cz
@@ -10,14 +10,14 @@ description: Správa skrytého e-shopu na jankuthan.cz (/eshop) – přidání, 
 - `eshop.html` (URL `/eshop`) – přehled produktů s textovým vyhledáváním.
 - `eshop-detail.html?id=<id>` – detail produktu, galerie a objednávkový formulář (počet kusů, kontakt, výdejní místo Zásilkovny přes oficiální widget `widget.packeta.com`, poznámka). Platba je převodem předem – platební údaje a cenu dopravy posílá majitel ručně.
 - Objednávka se odesílá POSTem (JSON) na n8n webhook `https://n8n.reddwarf.cloud/webhook/eshop-order` (workflow „eshop-objednavka (jankuthan.cz)“). n8n si cenu dohledá v živém `eshop.json`, validuje vstup a pošle e-mail na `jankuthan@email.cz` (Reply-To = zákazník). Zákazníkovi se nic neposílá. Webhook povoluje CORS jen pro `https://jankuthan.cz`, proto odeslání lokálně neprojde.
-- `obchodni-podminky.html` (vč. reklamací a vzorového formuláře pro odstoupení) a `ochrana-osobnich-udaju.html` – právní dokumenty e-shopu, stejně skryté (`noindex`), odkazované jen z patičky e-shopu a ze souhlasu ve formuláři. Formulář vyžaduje zaškrtnutí souhlasu s obchodními podmínkami (kontroluje i n8n). Text odesílacího tlačítka „Objednávka zavazující k platbě“ je vyžadován zákonem – neměnit na „Odeslat“ apod.
+- `obchodni-podminky.html` (vč. reklamací a vzorového formuláře pro odstoupení) a `ochrana-osobnich-udaju.html` – právní dokumenty e-shopu, odkazované z patičky e-shopu a ze souhlasu ve formuláři. Formulář vyžaduje zaškrtnutí souhlasu s obchodními podmínkami (kontroluje i n8n). Text odesílacího tlačítka „Objednávka zavazující k platbě“ je vyžadován zákonem – neměnit na „Odeslat“ apod.
 - PDF obchodních podmínek je v `assets/eshop/obchodni-podminky-<datum účinnosti>.pdf` (přikládá se k e-mailu s fakturou). Při změně podmínek: změň datum účinnosti v textu, vygeneruj nové PDF s novým názvem (absolutní odkazy na https://jankuthan.cz/, tiskový styl skryje navigaci) a uprav odkaz na stránce; staré PDF nemaž, platí pro dřívější objednávky.
 - CSP webu (v CloudFront funkci) povoluje widget Zásilkovny a n8n. Přidání dalšího externího zdroje vyžaduje úpravu CSP.
 - `eshop.json` – **jediný zdroj dat**. Obě stránky ho načítají skriptem `js/eshop.js` a vykreslují přes `textContent` (žádné `innerHTML`). Pole `shipping` je cena dopravy v Kč za objednávku (používá ji formulář i n8n).
 - `assets/eshop/<id>/` – fotky produktu (WebP).
 - `css/eshop.css` – styly jen pro e-shop.
 
-E-shop je **skrytý**: v menu ani nikde na webu na něj nevede odkaz, stránky mají `noindex, nofollow` a NESMÍ se objevit v `sitemap.xml`, `llms.txt`, `robots.txt` ani strukturovaných datech. Tohle při žádné úpravě neporušuj.
+E-shop je veřejný: na homepage na něj vede tlačítko „Prodávám“ a je v `sitemap.xml`. Každý produkt má v `sitemap.xml` vlastní záznam `https://jankuthan.cz/eshop-detail.html?id=<id>` – při přidání produktu ho doplň, při odebrání smaž, při změně uprav `lastmod`.
 
 Produkty jsou statické kopie – nejsou svázané s žádným portálem. Na zdrojový inzerát (Aukro apod.) se z webu neodkazuje.
 
