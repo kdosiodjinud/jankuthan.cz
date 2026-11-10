@@ -297,10 +297,6 @@ body {
   border-bottom: 1px solid #e8edf4;
 }
 
-.card-icon-pic {
-  display: contents;
-}
-
 .ai-page__card-icon {
   grid-column: 1;
   grid-row: 1 / 3;
