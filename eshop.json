@@ -25,6 +25,26 @@
         "assets/eshop/velux-025116-t-g2/5.webp",
         "assets/eshop/velux-025116-t-g2/6.webp"
       ]
+    },
+    {
+      "id": "podlozka-kluzak-houpaci-zidle-graz-ot-5006",
+      "name": "Náhradní díl, podložka / kluzák pro houpací židli GRAZ (typ OT-5006)",
+      "price": 300,
+      "summary": "Pevná náhrada rozlámaných plastových kluzáků houpací židle GRAZ (OT-5006), 3D tisk z polykarbonátu.",
+      "description": [
+        "Jedná se o náhradní díl řešící typickou závadu houpacích židlí GRAZ, u kterých dochází k rozlámání originálních plastových podložek (kluzáků).",
+        "Otestováno spokojenými uživateli. Snadná výměna za původní rozbitý kus. Židle je po opravě plně funkční a díky polykarbonátu podložka znovu nepraskne."
+      ],
+      "features": [
+        "kompatibilita: houpací židle GRAZ, typ OT-5006 (číslo produktu 25400111/02)",
+        "rozměry: 77 × 26 × 34 mm",
+        "materiál: polykarbonát – technický plast s extrémní mechanickou odolností, vydrží výrazně větší zátěž a namáhání než původní díl",
+        "barva: černá",
+        "výroba: kvalitní 3D tisk z prémiového materiálu, díl je ze spodní části plný pro větší pevnost, tloušťka stěn 5 mm"
+      ],
+      "images": [
+        "assets/eshop/podlozka-kluzak-houpaci-zidle-graz-ot-5006/1.webp"
+      ]
     }
   ]
 }

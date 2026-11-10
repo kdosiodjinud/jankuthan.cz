@@ -83,7 +83,8 @@
       thumbs.append(button);
     });
     const gallery = el('div', 'eshop-gallery');
-    gallery.append(main, thumbs);
+    gallery.append(main);
+    if (p.images.length > 1) gallery.append(thumbs);
 
     const info = el('div', 'eshop-detail__info');
     info.append(el('h1', 'eshop-detail__name', p.name), el('p', 'eshop-detail__price', formatPrice(p.price)));
