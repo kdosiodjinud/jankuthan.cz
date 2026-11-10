@@ -55,4 +55,16 @@ Produkty jsou statické kopie – nejsou svázané s žádným portálem. Na zdr
 
 ## Nasazení
 
-Řiď se globálními pravidly uživatele pro commit (GPG odemknutí, pouze subject, push dělá uživatel). Po pushi počkej na build GitHub Pages a invaliduj cache CloudFrontu (`/*`), jinak se změna na webu neprojeví. Nakonec ověř produkt na https://jankuthan.cz/eshop.
+Řiď se globálními pravidly uživatele pro commit (GPG odemknutí, pouze subject, push dělá uživatel). Po pushi počkej na build GitHub Pages a invaliduj cache CloudFrontu (`/*`), jinak se změna na webu neprojeví.
+
+**Cache – na co myslet:**
+- CloudFront: HTML a `eshop.json` drží max. 10 min, `/assets/` a `/css/` rok (neměnné) → po pushi vždy invalidace `/*`.
+- Prohlížeč: HTML a `eshop.json` mají `max-age=600`. `js/eshop.js` proto stahuje katalog s `cache: 'no-cache'` (vždy se ověří ETagem) – tuto volbu neodstraňuj, jinak návštěvník až 10 minut nevidí nové produkty v přehledu.
+- CSS/JS se mění jen se zvýšením `?v=` v `eshop.html` a `eshop-detail.html` a následným spuštěním generátoru (přenese verzi do `eshop/<id>.html`).
+
+**Ověření po nasazení (povinné, nestačí `curl`):**
+1. `curl https://jankuthan.cz/eshop.json` obsahuje nový/změněný produkt.
+2. V prohlížeči (Chrome DevTools) otevři **https://jankuthan.cz/eshop.html** a zkontroluj, že **přehled** produkt zobrazuje – ověř počet karet a názvy přes `document.querySelectorAll('.eshop-card h2')`. Pokud prohlížeč dříve stránku navštívil, načti ji s vynechanou cache.
+3. Otevři detail `https://jankuthan.cz/eshop/<id>.html` (galerie, cena, formulář) a zkontroluj `og:image`.
+4. Ověř, že n8n produkt zná, bez odeslání e-mailu: POST na webhook bez `terms` musí vrátit chybu o souhlasu s obchodními podmínkami (ne „Produkt neexistuje“).
+5. Uživateli řekni, že pokud stránku měl otevřenou těsně před nasazením, může vidět starou verzi až 10 minut (Cmd+Shift+R).

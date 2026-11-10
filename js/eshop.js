@@ -192,7 +192,8 @@
     form.hidden = false;
   }
 
-  fetch('eshop.json')
+  // no-cache: katalog se vždy ověří u serveru (ETag), aby byl nový produkt vidět hned po nasazení.
+  fetch('eshop.json', { cache: 'no-cache' })
     .then(function (response) {
       if (!response.ok) throw new Error(response.status);
       return response.json();
