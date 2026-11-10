@@ -89,10 +89,8 @@
       p.features.forEach(function (text) { ul.append(el('li', '', text)); });
       info.append(el('h2', 'eshop-detail__subheading', 'Klíčové vlastnosti'), ul);
     }
-    const form = document.getElementById('eshop-order');
-    info.append(form);
     detail.append(gallery, info);
-    initOrderForm(form, p);
+    initOrderForm(document.getElementById('eshop-order'), p);
   }
 
   function loadPacketa() {

@@ -129,20 +129,29 @@
   padding-left: 1.25rem;
 }
 
-.eshop-detail .page-cta {
-  text-align: left;
-}
-
 .eshop-message {
   text-align: center;
   color: #555;
 }
 
-@media (max-width: 720px) {
-  .eshop-detail {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
+.eshop-order {
+  margin-top: 3rem;
+  padding: 2rem;
+  border: 3px solid var(--color-blue);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.eshop-order__heading {
+  margin: 0 0 1.5rem;
+  font-size: 1.5rem;
+}
+
+.eshop-order__columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 2rem;
+  text-align: left;
 }
 
 .eshop-order label,
@@ -230,4 +239,16 @@
 
 .eshop-order__status--error {
   color: #c62828;
+}
+
+@media (max-width: 720px) {
+  .eshop-detail,
+  .eshop-order__columns {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .eshop-order {
+    padding: 1.25rem;
+  }
 }
