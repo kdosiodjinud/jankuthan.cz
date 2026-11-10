@@ -57,7 +57,7 @@
     });
   }
 
-  function renderDetail(products) {
+  function renderDetail(products, shipping) {
     const id = new URLSearchParams(location.search).get('id');
     const p = products.find(function (product) { return product.id === id; });
     if (!p) {
@@ -90,7 +90,7 @@
       info.append(el('h2', 'eshop-detail__subheading', 'Klíčové vlastnosti'), ul);
     }
     detail.append(gallery, info);
-    initOrderForm(document.getElementById('eshop-order'), p);
+    initOrderForm(document.getElementById('eshop-order'), p, shipping);
   }
 
   function loadPacketa() {
@@ -104,7 +104,7 @@
     });
   }
 
-  function initOrderForm(form, product) {
+  function initOrderForm(form, product, shipping) {
     const status = document.getElementById('eshop-order-status');
     const pointName = document.getElementById('eshop-point');
     const total = document.getElementById('eshop-total');
@@ -120,7 +120,7 @@
     function updateTotal() {
       const quantity = Number(form.elements.quantity.value);
       total.textContent = Number.isInteger(quantity) && quantity >= 1 && quantity <= 20
-        ? 'Cena za zboží: ' + formatPrice(product.price * quantity) + ' + doprava'
+        ? 'Celkem ' + formatPrice(product.price * quantity + shipping) + ' (zboží ' + formatPrice(product.price * quantity) + ' + doprava ' + formatPrice(shipping) + ')'
         : '';
     }
 
@@ -193,7 +193,7 @@
     })
     .then(function (data) {
       if (list) renderList(data.products);
-      if (detail) renderDetail(data.products);
+      if (detail) renderDetail(data.products, data.shipping);
     })
     .catch(function () {
       showMessage('Produkty se nepodařilo načíst.');
