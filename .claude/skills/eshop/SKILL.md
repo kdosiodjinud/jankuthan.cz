@@ -8,7 +8,9 @@ description: Správa skrytého e-shopu na jankuthan.cz (/eshop) – přidání, 
 ## Jak to funguje
 
 - `eshop.html` (URL `/eshop`) – přehled produktů s textovým vyhledáváním.
-- `eshop-detail.html?id=<id>` – detail produktu, galerie a tlačítko „Mám zájem“ (mailto s názvem produktu v předmětu).
+- `eshop-detail.html?id=<id>` – detail produktu, galerie a objednávkový formulář (počet kusů, kontakt, výdejní místo Zásilkovny přes oficiální widget `widget.packeta.com`, poznámka). Platba je převodem předem – platební údaje a cenu dopravy posílá majitel ručně.
+- Objednávka se odesílá POSTem (JSON) na n8n webhook `https://n8n.reddwarf.cloud/webhook/eshop-order` (workflow „eshop-objednavka (jankuthan.cz)“). n8n si cenu dohledá v živém `eshop.json`, validuje vstup a pošle e-mail na `jankuthan@email.cz` (Reply-To = zákazník). Zákazníkovi se nic neposílá. Webhook povoluje CORS jen pro `https://jankuthan.cz`, proto odeslání lokálně neprojde.
+- CSP webu (v CloudFront funkci) povoluje widget Zásilkovny a n8n. Přidání dalšího externího zdroje vyžaduje úpravu CSP.
 - `eshop.json` – **jediný zdroj dat**. Obě stránky ho načítají skriptem `js/eshop.js` a vykreslují přes `textContent` (žádné `innerHTML`).
 - `assets/eshop/<id>/` – fotky produktu (WebP).
 - `css/eshop.css` – styly jen pro e-shop.

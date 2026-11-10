@@ -1,7 +1,6 @@
 (function () {
   'use strict';
 
-  const EMAIL = 'jankuthan@email.cz';
   const list = document.getElementById('eshop-list');
   const detail = document.getElementById('eshop-detail');
   const message = document.getElementById('eshop-message');
@@ -90,13 +89,103 @@
       p.features.forEach(function (text) { ul.append(el('li', '', text)); });
       info.append(el('h2', 'eshop-detail__subheading', 'Klíčové vlastnosti'), ul);
     }
-    const contact = el('a', 'page-cta__button', 'Mám zájem – napsat e-mail');
-    contact.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Zájem o: ' + p.name);
-    const cta = el('p', 'page-cta');
-    cta.append(contact);
-    info.append(cta);
-
+    const form = document.getElementById('eshop-order');
+    info.append(form);
     detail.append(gallery, info);
+    initOrderForm(form, p);
+  }
+
+  function loadPacketa() {
+    if (window.Packeta) return Promise.resolve();
+    return new Promise(function (resolve, reject) {
+      const script = el('script');
+      script.src = 'https://widget.packeta.com/v6/www/js/library.js';
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.append(script);
+    });
+  }
+
+  function initOrderForm(form, product) {
+    const status = document.getElementById('eshop-order-status');
+    const pointName = document.getElementById('eshop-point');
+    const total = document.getElementById('eshop-total');
+    const submit = form.querySelector('[type="submit"]');
+    let point = null;
+
+    function setStatus(text, isError) {
+      status.textContent = text;
+      status.classList.toggle('eshop-order__status--error', isError);
+      status.hidden = false;
+    }
+
+    function updateTotal() {
+      const quantity = Number(form.elements.quantity.value);
+      total.textContent = Number.isInteger(quantity) && quantity >= 1 && quantity <= 20
+        ? 'Cena za zboží: ' + formatPrice(product.price * quantity) + ' + doprava'
+        : '';
+    }
+
+    form.elements.quantity.addEventListener('input', updateTotal);
+    updateTotal();
+
+    document.getElementById('eshop-point-pick').addEventListener('click', function () {
+      loadPacketa()
+        .then(function () {
+          window.Packeta.Widget.pick(form.dataset.packetaKey, function (selected) {
+            if (!selected) return;
+            point = { id: String(selected.id), name: [selected.place, selected.name].filter(Boolean).join(', ') };
+            pointName.textContent = point.name;
+          }, { language: 'cs', country: 'cz' });
+        })
+        .catch(function () {
+          setStatus('Mapu výdejních míst se nepodařilo načíst. Zkuste to prosím znovu.', true);
+        });
+    });
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      if (!point) {
+        setStatus('Vyberte prosím výdejní místo Zásilkovny.', true);
+        return;
+      }
+      submit.disabled = true;
+      setStatus('Odesílám…', false);
+      fetch(form.dataset.endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          productId: product.id,
+          quantity: Number(form.elements.quantity.value),
+          name: form.elements.name.value,
+          email: form.elements.email.value,
+          phone: form.elements.phone.value,
+          pickupPoint: point,
+          note: form.elements.note.value,
+          website: form.elements.website.value,
+        }),
+      })
+        .then(function (response) {
+          return response.json().catch(function () { return {}; });
+        })
+        .then(function (result) {
+          if (!result.ok) throw new Error(result.error || 'Objednávku se nepodařilo odeslat.');
+          form.reset();
+          point = null;
+          pointName.textContent = 'Zatím nevybráno';
+          updateTotal();
+          setStatus('Děkuji, objednávka ' + (result.orderNo || '') + ' je odeslaná. Brzy se vám ozvu e-mailem s platebními údaji.', false);
+        })
+        .catch(function (error) {
+          setStatus(error instanceof TypeError ? 'Objednávku se nepodařilo odeslat. Zkuste to prosím později.' : error.message, true);
+        })
+        .finally(function () {
+          submit.disabled = false;
+        });
+    });
+
+    form.hidden = false;
   }
 
   fetch('eshop.json')

@@ -144,3 +144,90 @@
     gap: 1.5rem;
   }
 }
+
+.eshop-order label,
+.eshop-order__label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.eshop-order input,
+.eshop-order textarea {
+  display: block;
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.6rem 0.9rem;
+  font: inherit;
+  font-weight: 400;
+  border: 2px solid #d6dde8;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.eshop-order input:focus,
+.eshop-order textarea:focus {
+  outline: none;
+  border-color: var(--color-blue);
+}
+
+.eshop-order__point {
+  margin-bottom: 1rem;
+}
+
+.eshop-order__point .eshop-order__label {
+  margin-bottom: 0.35rem;
+}
+
+.eshop-order__point-name {
+  margin: 0 0 0.5rem;
+}
+
+.eshop-order__pick {
+  padding: 0.5rem 1.1rem;
+  font: inherit;
+  font-weight: 600;
+  color: var(--color-blue);
+  cursor: pointer;
+  background: var(--color-blue-tint);
+  border: 0;
+  border-radius: 999px;
+}
+
+.eshop-order__hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.eshop-order__total {
+  font-weight: 700;
+}
+
+.eshop-order__info {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.eshop-order button[type="submit"] {
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  border: 0;
+}
+
+.eshop-order button[type="submit"]:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.eshop-order__status {
+  font-weight: 600;
+  color: #1b7a32;
+}
+
+.eshop-order__status--error {
+  color: #c62828;
+}

@@ -9,8 +9,8 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="css/style.css?v=202607161">
-  <link rel="stylesheet" href="css/eshop.css?v=1">
-  <script src="js/eshop.js?v=1" defer></script>
+  <link rel="stylesheet" href="css/eshop.css?v=2">
+  <script src="js/eshop.js?v=2" defer></script>
 </head>
 <body class="ai-page web-page">
   <nav class="page-nav">
@@ -22,6 +22,38 @@
   </nav>
   <main class="container">
     <article id="eshop-detail" class="eshop-detail"></article>
+    <form id="eshop-order" class="eshop-order" hidden novalidate
+          data-endpoint="https://n8n.reddwarf.cloud/webhook/eshop-order"
+          data-packeta-key="9dc6b939888753dc">
+      <h2 class="eshop-detail__subheading">Objednávka</h2>
+      <label>Počet kusů
+        <input type="number" name="quantity" min="1" max="20" value="1" required>
+      </label>
+      <label>Jméno a příjmení
+        <input type="text" name="name" maxlength="100" autocomplete="name" required>
+      </label>
+      <label>E-mail
+        <input type="email" name="email" maxlength="254" autocomplete="email" required>
+      </label>
+      <label>Telefon
+        <input type="tel" name="phone" maxlength="20" autocomplete="tel" required>
+      </label>
+      <div class="eshop-order__point">
+        <span class="eshop-order__label">Výdejní místo Zásilkovny</span>
+        <p id="eshop-point" class="eshop-order__point-name">Zatím nevybráno</p>
+        <button type="button" id="eshop-point-pick" class="eshop-order__pick">Vybrat výdejní místo</button>
+      </div>
+      <label>Poznámka (nepovinné)
+        <textarea name="note" maxlength="1000" rows="3"></textarea>
+      </label>
+      <label class="eshop-order__hp" aria-hidden="true">Web
+        <input type="text" name="website" tabindex="-1" autocomplete="off">
+      </label>
+      <p id="eshop-total" class="eshop-order__total"></p>
+      <p class="eshop-order__info">Platba převodem předem. Cenu dopravy a platební údaje vám pošlu e-mailem. Údaje z formuláře použiji jen k vyřízení objednávky.</p>
+      <p class="page-cta"><button type="submit" class="page-cta__button">Odeslat objednávku</button></p>
+      <p id="eshop-order-status" class="eshop-order__status" role="status" hidden></p>
+    </form>
     <p id="eshop-message" class="eshop-message" hidden></p>
     <noscript><p class="eshop-message">Pro zobrazení produktu je potřeba zapnout JavaScript.</p></noscript>
   </main>
