@@ -1,0 +1,24 @@
+# Jan Kuthan
+
+> Jan Kuthan je český programátor (senior vývojář, architekt a team lead) se zaměřením na vývoj webových aplikací, praktické využití AI a školení. Motto: Developer's Heart. Leader's Mind. Simplicity's Champion. Web je v češtině.
+
+Kontakt: jankuthan@email.cz, +420 736 286 400. Spolupráce na dálku i osobně přímo u klienta.
+
+Zkušenosti: Prusa Research (senior vývojář), VysokéŠkoly.cz (údržba kódu a implementace AI nástrojů), Alma Career Czechia – Jobs.cz a Prace.cz (8 let: PHP Developer, Team Lead Engineer, JobBoard Platform Domain Architect), Klik.cz (5 let, PHP Developer). Témata: AI agenti, OpenAI, architektura systémů, PHP, microservices, AWS, vedení týmu.
+
+## Služby
+
+- [Vývoj webových aplikací](https://jankuthan.cz/web.html): malé i velké webové aplikace v dohodnutém termínu, nový projekt, posílení týmu nebo jednorázový audit kódu.
+- [AI konzultace](https://jankuthan.cz/ai.html): praktické využití AI pro provozovatele webů (chatboti, automatizace obsahu, vyhledávání), kancelářskou práci (dokumenty, e-maily, reporty) i úplné začátečníky.
+- [Školení a workshopy](https://jankuthan.cz/skoleni.html): úvod do AI pro programátory i neprogramátory, agilní principy, týmové flow, efektivní spolupráce. Pro firmy i jednotlivce, prezenčně nebo online.
+
+## O mně
+
+- [Úvodní stránka](https://jankuthan.cz/): kontakt a přehled oblastí (Web, AI, Školení).
+- [Životopis](https://jankuthan.cz/cv.html): pracovní historie, dovednosti a vlastní projekty.
+
+## Optional
+
+- [Vlastní projekty](https://jankuthan.cz/cv.html): stacklinker.com (sdílení záložek s týmem, aktuální); prodané projekty imagedit.io, story-creator.com, growup.cloud, sefolo.com.
+- [GitHub](https://github.com/kdosiodjinud)
+- [LinkedIn](https://www.linkedin.com/in/jankuthan)
