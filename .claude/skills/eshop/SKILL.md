@@ -42,7 +42,7 @@ Produkty jsou statické kopie – nejsou svázané s žádným portálem. Na zdr
      "images": ["assets/eshop/slug/1.webp", "assets/eshop/slug/2.webp"]
    }
    ```
-   Cena je celé číslo v Kč. `features` může být prázdné pole. Texty piš česky se správnou diakritikou, bez HTML.
+   Cena je celé číslo v Kč. `features` může být prázdné pole. Volitelné pole `"badge"` (např. `"Nové"`) zobrazí štítek v rohu fotky v přehledu i v detailu; bez něj se štítek nezobrazí. Texty piš česky se správnou diakritikou, bez HTML.
 5. **Stránka produktu:** spusť `python3 scripts/build-eshop-pages.py` (vytvoří `eshop/<id>.html` a náhled `og-<první fotka>.jpg`, pokud chybí; při odebrání produktu jeho stránku smaže). Náhled si prohlédni; po výměně první fotky starý `og-*.jpg` smaž – ořez je na střed fotky. Doplň produkt do `sitemap.xml`.
 6. **Ověření** (povinné): spusť lokální server (`python3 -m http.server`) a v prohlížeči zkontroluj přehled, vyhledání produktu a jeho detail včetně galerie. Konzole musí být bez chyb. Validitu JSON ověř `python3 -m json.tool eshop.json`.
 

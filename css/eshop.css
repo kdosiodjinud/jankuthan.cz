@@ -27,6 +27,22 @@
   display: none;
 }
 
+.eshop-media {
+  position: relative;
+}
+
+.eshop-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: var(--color-blue);
+  border-radius: 999px;
+}
+
 .eshop-card {
   display: block;
   height: 100%;

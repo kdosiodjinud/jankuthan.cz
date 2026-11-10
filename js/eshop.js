@@ -20,6 +20,14 @@
     return node;
   }
 
+  // Fotka se štítkem (např. „Nové“) v levém horním rohu, pokud ho produkt má.
+  function media(image, product) {
+    const box = el('div', 'eshop-media');
+    box.append(image);
+    if (product.badge) box.append(el('span', 'eshop-badge', product.badge));
+    return box;
+  }
+
   function formatPrice(price) {
     return price.toLocaleString('cs-CZ') + ' Kč';
   }
@@ -38,7 +46,7 @@
     const items = products.map(function (p) {
       const link = el('a', 'eshop-card');
       link.href = 'eshop/' + encodeURIComponent(p.id) + '.html';
-      link.append(img(p.images[0], p.name), el('h2', 'eshop-card__name', p.name), el('p', 'eshop-card__summary', p.summary), el('p', 'eshop-card__price', formatPrice(p.price)));
+      link.append(media(img(p.images[0], p.name), p), el('h2', 'eshop-card__name', p.name), el('p', 'eshop-card__summary', p.summary), el('p', 'eshop-card__price', formatPrice(p.price)));
       const li = el('li');
       li.append(link);
       list.append(li);
@@ -83,7 +91,7 @@
       thumbs.append(button);
     });
     const gallery = el('div', 'eshop-gallery');
-    gallery.append(main);
+    gallery.append(media(main, p));
     if (p.images.length > 1) gallery.append(thumbs);
 
     const info = el('div', 'eshop-detail__info');

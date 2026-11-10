@@ -3,6 +3,7 @@
   "products": [
     {
       "id": "velux-025116-t-g2",
+      "badge": "Nové",
       "name": "Náhradní díl VELUX 025116 T-G2",
       "price": 300,
       "summary": "3D tištěná náhrada dílu ke starším oknům VELUX, který se už nevyrábí. Včetně středového trnu.",
@@ -28,6 +29,7 @@
     },
     {
       "id": "podlozka-kluzak-houpaci-zidle-graz-ot-5006",
+      "badge": "Nové",
       "name": "Náhradní díl, podložka / kluzák pro houpací židli GRAZ (typ OT-5006)",
       "price": 300,
       "summary": "Pevná náhrada rozlámaných plastových kluzáků houpací židle GRAZ (OT-5006), 3D tisk z polykarbonátu.",
