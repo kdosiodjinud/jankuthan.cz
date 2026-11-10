@@ -161,6 +161,7 @@
           phone: form.elements.phone.value,
           pickupPoint: point,
           note: form.elements.note.value,
+          terms: form.elements.terms.checked,
           website: form.elements.website.value,
         }),
       })

@@ -251,4 +251,94 @@
   .eshop-order {
     padding: 1.25rem;
   }
+
+  .eshop-legal__table {
+    display: block;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+
+  .eshop-legal__table th,
+  .eshop-legal__table td {
+    padding: 0.35rem;
+  }
+}
+
+.eshop-order .eshop-order__terms {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 1rem 0 0;
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+
+.eshop-order .eshop-order__terms input {
+  display: inline;
+  width: auto;
+  margin: 0.2rem 0 0;
+  padding: 0;
+}
+
+.eshop-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  justify-content: center;
+  padding: 2rem 1rem 3rem;
+  font-size: 0.9rem;
+}
+
+.eshop-footer a,
+.eshop-legal a,
+.eshop-order__terms a {
+  color: var(--color-blue);
+}
+
+.eshop-legal h2 {
+  margin: 2rem 0 0.75rem;
+  font-size: 1.2rem;
+}
+
+.eshop-legal ol,
+.eshop-legal ul {
+  padding-left: 1.25rem;
+}
+
+.eshop-legal li {
+  margin-bottom: 0.5rem;
+}
+
+.eshop-legal__meta {
+  text-align: center;
+  color: #555;
+}
+
+.eshop-legal__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.eshop-legal__table th,
+.eshop-legal__table td {
+  padding: 0.5rem;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid #e8edf4;
+}
+
+.eshop-legal__form {
+  padding: 1rem 1.5rem;
+  border: 2px dashed #d6dde8;
+  border-radius: 12px;
+}
+
+@media print {
+  .page-nav,
+  .eshop-footer,
+  .eshop-legal__pdf {
+    display: none;
+  }
 }

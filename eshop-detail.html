@@ -9,8 +9,8 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="css/style.css?v=202607161">
-  <link rel="stylesheet" href="css/eshop.css?v=3">
-  <script src="js/eshop.js?v=4" defer></script>
+  <link rel="stylesheet" href="css/eshop.css?v=4">
+  <script src="js/eshop.js?v=5" defer></script>
 </head>
 <body class="ai-page web-page">
   <nav class="page-nav">
@@ -56,12 +56,17 @@
         <input type="text" name="website" tabindex="-1" autocomplete="off">
       </label>
       <p id="eshop-total" class="eshop-order__total"></p>
-      <p class="eshop-order__info">Platba převodem předem. Po odeslání objednávky vám na e-mail pošlu fakturu s platebními údaji. Po zaplacení v 90 % případů odesílám ještě týž den. Údaje z formuláře použiji jen k vyřízení objednávky.</p>
-      <p class="page-cta"><button type="submit" class="page-cta__button">Odeslat objednávku</button></p>
+      <p class="eshop-order__info">Platba převodem předem. Po odeslání objednávky vám na e-mail pošlu fakturu s platebními údaji. Po zaplacení v 90 % případů odesílám ještě týž den.</p>
+      <label class="eshop-order__terms"><input type="checkbox" name="terms" required> <span>Souhlasím s <a href="obchodni-podminky.html" target="_blank">obchodními podmínkami</a> a beru na vědomí <a href="ochrana-osobnich-udaju.html" target="_blank">zásady zpracování osobních údajů</a>.</span></label>
+      <p class="page-cta"><button type="submit" class="page-cta__button">Objednávka zavazující k platbě</button></p>
       <p id="eshop-order-status" class="eshop-order__status" role="status" hidden></p>
     </form>
     <p id="eshop-message" class="eshop-message" hidden></p>
     <noscript><p class="eshop-message">Pro zobrazení produktu je potřeba zapnout JavaScript.</p></noscript>
   </main>
+  <footer class="eshop-footer">
+    <a href="obchodni-podminky.html">Obchodní podmínky</a>
+    <a href="ochrana-osobnich-udaju.html">Ochrana osobních údajů</a>
+  </footer>
 </body>
 </html>
