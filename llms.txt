@@ -12,6 +12,11 @@ Zkušenosti: Prusa Research (senior vývojář), VysokéŠkoly.cz (údržba kód
 - [AI konzultace](https://jankuthan.cz/ai.html): praktické využití AI pro provozovatele webů (chatboti, automatizace obsahu, vyhledávání), kancelářskou práci (dokumenty, e-maily, reporty) i úplné začátečníky.
 - [Školení a workshopy](https://jankuthan.cz/skoleni.html): úvod do AI pro programátory i neprogramátory, agilní principy, týmové flow, efektivní spolupráce. Pro firmy i jednotlivce, prezenčně nebo online.
 
+## E-shop
+
+- [E-shop](https://jankuthan.cz/eshop.html): prodej vlastních výrobků, zejména 3D tištěných náhradních dílů (např. díl VELUX 025116 T-G2 ke starším střešním oknům). Objednávka formulářem, platba převodem předem na základě faktury, doprava Zásilkovnou po ČR za 40 Kč, odeslání zpravidla v den připsání platby.
+- [Obchodní podmínky](https://jankuthan.cz/obchodni-podminky.html) a [zásady zpracování osobních údajů](https://jankuthan.cz/ochrana-osobnich-udaju.html).
+
 ## O mně
 
 - [Úvodní stránka](https://jankuthan.cz/): kontakt a přehled oblastí (Web, AI, Školení).

@@ -65,6 +65,11 @@
       return;
     }
     document.title = p.name + ' – Jan Kuthan';
+    document.querySelector('meta[name="description"]').content = p.summary;
+    const canonical = el('link');
+    canonical.rel = 'canonical';
+    canonical.href = 'https://jankuthan.cz/eshop-detail.html?id=' + encodeURIComponent(p.id);
+    document.head.append(canonical);
 
     const main = img(p.images[0], p.name);
     main.className = 'eshop-gallery__main';
