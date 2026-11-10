@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Vygeneruje statické stránky produktů produkt-<id>.html z eshop.json a šablony eshop-detail.html.
+"""Vygeneruje statické stránky produktů eshop/<id>.html z eshop.json a šablony eshop-detail.html.
 
 Každá stránka má vlastní titulek, popisek, canonical a Open Graph značky (sociální sítě nespouštějí
 JavaScript). Chybějící náhledový obrázek assets/eshop/<id>/og-<první fotka>.jpg (1200×630) vytvoří z první fotky
@@ -36,11 +36,13 @@ def build_og_image(product):
 
 def build_page(template, product):
     attr = lambda value: html.escape(value, quote=True)
-    url = f"{BASE_URL}produkt-{product['id']}.html"
+    url = f"{BASE_URL}eshop/{product['id']}.html"
     og_image = BASE_URL + build_og_image(product)
     page = template
     page = replace_once(page, '<!DOCTYPE html>\n',
                         '<!DOCTYPE html>\n<!-- Vygenerováno skriptem scripts/build-eshop-pages.py – neupravovat ručně, uprav eshop-detail.html nebo eshop.json. -->\n')
+    # Stránka leží v eshop/, relativní odkazy šablony se mají vztahovat ke kořeni webu.
+    page = replace_once(page, '  <meta charset="UTF-8">\n', '  <meta charset="UTF-8">\n  <base href="/">\n')
     page = replace_once(page, '<title>E-shop – Jan Kuthan</title>', f"<title>{html.escape(product['name'])} – Jan Kuthan</title>")
     page = replace_once(page, f'<meta name="description" content="{GENERIC_DESC}">', f'<meta name="description" content="{attr(product["summary"])}">')
     page = replace_once(page, '  <meta name="robots" content="max-image-preview:large">\n',
@@ -59,18 +61,20 @@ def build_page(template, product):
 def main():
     template = (ROOT / 'eshop-detail.html').read_text(encoding='utf-8')
     products = json.loads((ROOT / 'eshop.json').read_text(encoding='utf-8'))['products']
+    out_dir = ROOT / 'eshop'
+    out_dir.mkdir(exist_ok=True)
     expected = set()
     for product in products:
         if not re.fullmatch(r'[a-z0-9]+(-[a-z0-9]+)*', product['id']):
             raise SystemExit(f"Neplatné id produktu: {product['id']!r}")
-        target = ROOT / f"produkt-{product['id']}.html"
+        target = out_dir / f"{product['id']}.html"
         target.write_text(build_page(template, product), encoding='utf-8')
         expected.add(target.name)
-        print(f'OK {target.name}')
-    for stale in ROOT.glob('produkt-*.html'):
+        print(f'OK eshop/{target.name}')
+    for stale in out_dir.glob('*.html'):
         if stale.name not in expected:
             stale.unlink()
-            print(f'Smazáno {stale.name}')
+            print(f'Smazáno eshop/{stale.name}')
 
 
 if __name__ == '__main__':

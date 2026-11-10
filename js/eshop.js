@@ -37,7 +37,7 @@
     const search = document.getElementById('eshop-search');
     const items = products.map(function (p) {
       const link = el('a', 'eshop-card');
-      link.href = 'produkt-' + encodeURIComponent(p.id) + '.html';
+      link.href = 'eshop/' + encodeURIComponent(p.id) + '.html';
       link.append(img(p.images[0], p.name), el('h2', 'eshop-card__name', p.name), el('p', 'eshop-card__summary', p.summary), el('p', 'eshop-card__price', formatPrice(p.price)));
       const li = el('li');
       li.append(link);
@@ -66,7 +66,7 @@
     }
     // Stará adresa eshop-detail.html?id=… → statická stránka produktu.
     if (!detail.dataset.productId) {
-      location.replace('produkt-' + encodeURIComponent(p.id) + '.html');
+      location.replace('eshop/' + encodeURIComponent(p.id) + '.html');
       return;
     }
 
