@@ -37,7 +37,7 @@
     const search = document.getElementById('eshop-search');
     const items = products.map(function (p) {
       const link = el('a', 'eshop-card');
-      link.href = 'eshop-detail.html?id=' + encodeURIComponent(p.id);
+      link.href = 'produkt-' + encodeURIComponent(p.id) + '.html';
       link.append(img(p.images[0], p.name), el('h2', 'eshop-card__name', p.name), el('p', 'eshop-card__summary', p.summary), el('p', 'eshop-card__price', formatPrice(p.price)));
       const li = el('li');
       li.append(link);
@@ -58,18 +58,17 @@
   }
 
   function renderDetail(products, shipping) {
-    const id = new URLSearchParams(location.search).get('id');
+    const id = detail.dataset.productId || new URLSearchParams(location.search).get('id');
     const p = products.find(function (product) { return product.id === id; });
     if (!p) {
       showMessage('Produkt nebyl nalezen.');
       return;
     }
-    document.title = p.name + ' – Jan Kuthan';
-    document.querySelector('meta[name="description"]').content = p.summary;
-    const canonical = el('link');
-    canonical.rel = 'canonical';
-    canonical.href = 'https://jankuthan.cz/eshop-detail.html?id=' + encodeURIComponent(p.id);
-    document.head.append(canonical);
+    // Stará adresa eshop-detail.html?id=… → statická stránka produktu.
+    if (!detail.dataset.productId) {
+      location.replace('produkt-' + encodeURIComponent(p.id) + '.html');
+      return;
+    }
 
     const main = img(p.images[0], p.name);
     main.className = 'eshop-gallery__main';

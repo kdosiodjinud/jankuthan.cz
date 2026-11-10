@@ -8,7 +8,7 @@ description: Správa e-shopu na jankuthan.cz (/eshop) – přidání, úprava a 
 ## Jak to funguje
 
 - `eshop.html` (URL `/eshop`) – přehled produktů s textovým vyhledáváním.
-- `eshop-detail.html?id=<id>` – detail produktu, galerie a objednávkový formulář (počet kusů, kontakt, výdejní místo Zásilkovny přes oficiální widget `widget.packeta.com`, poznámka). Platba je převodem předem – platební údaje a cenu dopravy posílá majitel ručně.
+- `produkt-<id>.html` – statická stránka detailu produktu, **generovaná** skriptem `python3 scripts/build-eshop-pages.py` ze šablony `eshop-detail.html` a `eshop.json` (vlastní titulek, popisek, canonical a Open Graph s náhledem `assets/eshop/<id>/og-<první fotka>.jpg` 1200×630 z první fotky – sociální sítě nespouštějí JavaScript). Ručně ji neupravuj; změny dělej v šabloně nebo v datech a skript spusť znovu. Stará adresa `eshop-detail.html?id=<id>` přesměruje na novou. Na stránce je galerie a objednávkový formulář (počet kusů, kontakt, výdejní místo Zásilkovny přes oficiální widget `widget.packeta.com`, poznámka). Platba je převodem předem – platební údaje a cenu dopravy posílá majitel ručně.
 - Objednávka se odesílá POSTem (JSON) na n8n webhook `https://n8n.reddwarf.cloud/webhook/eshop-order` (workflow „eshop-objednavka (jankuthan.cz)“). n8n si cenu dohledá v živém `eshop.json`, validuje vstup a pošle e-mail na `jankuthan@email.cz` (Reply-To = zákazník). Zákazníkovi se nic neposílá. Webhook povoluje CORS jen pro `https://jankuthan.cz`, proto odeslání lokálně neprojde.
 - `obchodni-podminky.html` (vč. reklamací a vzorového formuláře pro odstoupení) a `ochrana-osobnich-udaju.html` – právní dokumenty e-shopu, odkazované z patičky e-shopu a ze souhlasu ve formuláři. Formulář vyžaduje zaškrtnutí souhlasu s obchodními podmínkami (kontroluje i n8n). Text odesílacího tlačítka „Objednávka zavazující k platbě“ je vyžadován zákonem – neměnit na „Odeslat“ apod.
 - PDF obchodních podmínek je v `assets/eshop/obchodni-podminky-<datum účinnosti>.pdf` (přikládá se k e-mailu s fakturou). Při změně podmínek: změň datum účinnosti v textu, vygeneruj nové PDF s novým názvem (absolutní odkazy na https://jankuthan.cz/, tiskový styl skryje navigaci) a uprav odkaz na stránce; staré PDF nemaž, platí pro dřívější objednávky.
@@ -17,7 +17,7 @@ description: Správa e-shopu na jankuthan.cz (/eshop) – přidání, úprava a 
 - `assets/eshop/<id>/` – fotky produktu (WebP).
 - `css/eshop.css` – styly jen pro e-shop.
 
-E-shop je veřejný: na homepage na něj vede tlačítko „Prodávám“ a je v `sitemap.xml`. Každý produkt má v `sitemap.xml` vlastní záznam `https://jankuthan.cz/eshop-detail.html?id=<id>` – při přidání produktu ho doplň, při odebrání smaž, při změně uprav `lastmod`.
+E-shop je veřejný: na homepage na něj vede tlačítko „Prodávám“ a je v `sitemap.xml`. Každý produkt má v `sitemap.xml` vlastní záznam `https://jankuthan.cz/produkt-<id>.html` – při přidání produktu ho doplň, při odebrání smaž, při změně uprav `lastmod`.
 
 Produkty jsou statické kopie – nejsou svázané s žádným portálem. Na zdrojový inzerát (Aukro apod.) se z webu neodkazuje.
 
@@ -43,7 +43,8 @@ Produkty jsou statické kopie – nejsou svázané s žádným portálem. Na zdr
    }
    ```
    Cena je celé číslo v Kč. `features` může být prázdné pole. Texty piš česky se správnou diakritikou, bez HTML.
-5. **Ověření** (povinné): spusť lokální server (`python3 -m http.server`) a v prohlížeči zkontroluj přehled, vyhledání produktu a jeho detail včetně galerie. Konzole musí být bez chyb. Validitu JSON ověř `python3 -m json.tool eshop.json`.
+5. **Stránka produktu:** spusť `python3 scripts/build-eshop-pages.py` (vytvoří `produkt-<id>.html` a náhled `og-<první fotka>.jpg`, pokud chybí; při odebrání produktu jeho stránku smaže). Náhled si prohlédni; po výměně první fotky starý `og-*.jpg` smaž – ořez je na střed fotky. Doplň produkt do `sitemap.xml`.
+6. **Ověření** (povinné): spusť lokální server (`python3 -m http.server`) a v prohlížeči zkontroluj přehled, vyhledání produktu a jeho detail včetně galerie. Konzole musí být bez chyb. Validitu JSON ověř `python3 -m json.tool eshop.json`.
 
 ## Úprava a odebrání
 
