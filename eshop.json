@@ -1,0 +1,29 @@
+{
+  "products": [
+    {
+      "id": "velux-025116-t-g2",
+      "name": "Náhradní díl VELUX 025116 T-G2",
+      "price": 300,
+      "summary": "3D tištěná náhrada dílu ke starším oknům VELUX, který se už nevyrábí. Včetně středového trnu.",
+      "description": [
+        "Jedná se o náhradní díl ke starším oknům VELUX, díl již není v prodeji. Na trhu je mnoho 3D tisků, které ale nekopírují originál dokonale ve všech křivkách a především jsou velmi často bez středového trnu – který slouží k roznášení tlaku (a nezničí rám okna, kde jsou chycené vruty).",
+        "Toto je také 3D tisk (nejedná se o originální díl), nicméně tisknutý s cílem vysoké pevnosti a odolnosti.",
+        "V případě zájmu se lze domluvit na jiných barvách."
+      ],
+      "features": [
+        "materiál odolný UV záření (UV stabilní, nezežloutne)",
+        "vysoce odolný",
+        "dodržuje šikminy jako originál (hladký průběh zapadnutí protikusu)",
+        "středový trn pro roznesení tlaku"
+      ],
+      "images": [
+        "assets/eshop/velux-025116-t-g2/1.webp",
+        "assets/eshop/velux-025116-t-g2/2.webp",
+        "assets/eshop/velux-025116-t-g2/3.webp",
+        "assets/eshop/velux-025116-t-g2/4.webp",
+        "assets/eshop/velux-025116-t-g2/5.webp",
+        "assets/eshop/velux-025116-t-g2/6.webp"
+      ]
+    }
+  ]
+}
