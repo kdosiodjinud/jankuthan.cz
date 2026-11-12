@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1976d2">
+  <title>Podpora – n8n Chat</title>
+  <meta name="description" content="Kontakt a časté dotazy k Android aplikaci n8n Chat.">
+  <meta name="author" content="Jan Kuthan">
+  <link rel="canonical" href="https://jankuthan.cz/apps/n8n-chat/podpora.html">
+  <link rel="alternate" hreflang="cs" href="https://jankuthan.cz/apps/n8n-chat/podpora.html">
+  <link rel="alternate" hreflang="en" href="https://jankuthan.cz/apps/n8n-chat/en/support.html">
+  <link rel="alternate" hreflang="x-default" href="https://jankuthan.cz/apps/n8n-chat/en/support.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jankuthan.cz/apps/n8n-chat/podpora.html">
+  <meta property="og:title" content="Podpora – n8n Chat">
+  <meta property="og:description" content="Kontakt a časté dotazy k Android aplikaci n8n Chat.">
+  <meta property="og:image" content="https://jankuthan.cz/apps/n8n-chat/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="cs_CZ">
+  <meta property="og:site_name" content="n8n Chat">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/svg+xml" href="img/icon.svg">
+
+  <link rel="stylesheet" href="../../css/style.css?v=202611102">
+  <link rel="stylesheet" href="app.css?v=202611121">
+</head>
+<body class="ai-page web-page app-page">
+  <nav class="page-nav">
+      <a href="./" class="page-nav__back" aria-label="Zpět na n8n Chat" title="Zpět na n8n Chat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg></a>
+      <a href="ochrana-soukromi.html" class="homepage__tag page-nav__link">Ochrana soukromí</a>
+      <a href="podminky.html" class="homepage__tag page-nav__link">Podmínky</a>
+      <a href="podpora.html" class="homepage__tag page-nav__link page-nav__link--active">Podpora</a>
+      <a href="en/support.html" class="homepage__tag page-nav__link" lang="en" hreflang="en">English</a>
+  </nav>
+  <main class="container">
+    <div class="app-legal">
+    <h1 class="ai-page__heading">Podpora</h1>
+    <p class="ai-page__intro">Něco nefunguje, nebo máte nápad na vylepšení? Napište mi.</p>
+
+    <h2>Kontakt</h2>
+    <p>E-mail: <a href="mailto:jankuthan@email.cz?subject=n8n%20Chat">jankuthan@email.cz</a><br>
+      Do zprávy prosím uveďte verzi aplikace (Nastavení → dole), verzi Androidu, verzi n8n a popis problému. <strong>Nikdy neposílejte hesla, tokeny ani adresy webhooků s tajnými klíči.</strong></p>
+
+    <h2>Časté dotazy</h2>
+    <dl class="app-faq">
+      <dt>Jak nastavit n8n, aby s aplikací fungovalo?</dt>
+      <dd>Stačí trigger <strong>On chat message</strong> se zapnutou volbou <strong>Make Chat Publicly Available</strong>, AI Agent s modelem a Simple Memory ve výchozím nastavení a publikované workflow. Chat URL vložte v aplikaci jako adresu serveru. Podrobný návod s printscreeny je v aplikaci pod ikonou ⓘ.</dd>
+
+      <dt>Aplikace hlásí „Webhook nenalezen (HTTP 404)“.</dt>
+      <dd>Workflow není publikované (tlačítko <em>Publish</em>), nebo je adresa špatně. U chat triggeru musí adresa končit na <code>/chat</code>; u Webhook node použijte <em>Production URL</em>, ne Test URL.</dd>
+
+      <dt>Aplikace hlásí „Přístup odepřen (HTTP 401/403)“.</dt>
+      <dd>Autentizace v aplikaci neodpovídá nastavení v n8n. Zkontrolujte typ autentizace a údaje. U přihlášení účtem n8n mohlo přihlášení vypršet (výchozí platnost je 7 dní) – přihlaste se znovu v nastavení serveru.</dd>
+
+      <dt>Proč nejde zadat adresa s http://?</dt>
+      <dd>Kvůli bezpečnosti aplikace komunikuje jen přes šifrované HTTPS. Pro n8n v domácí síti použijte například reverzní proxy s certifikátem.</dd>
+
+      <dt>Místo textu se zobrazí JSON, nebo nic.</dt>
+      <dd>Aplikace čte text z klíče <code>output</code> (výstup AI Agenta), případně <code>text</code>, <code>message</code> a dalších. Jinou cestu nastavíte u serveru v poli „Cesta k textu v JSON odpovědi“. U Webhook node zkontrolujte, že má Respond nastavené na <em>When Last Node Finishes</em>.</dd>
+
+      <dt>AI agent si nepamatuje předchozí zprávy.</dt>
+      <dd>Připojte k agentovi Simple Memory (nebo jinou paměť). S chat triggerem funguje ve výchozím nastavení; u Webhook node nastavte klíč session na <code>{{ $json.body.sessionId }}</code>. Nová session v aplikaci záměrně začíná s čistou pamětí.</dd>
+
+      <dt>Odpověď se nezobrazuje průběžně, ale až celá.</dt>
+      <dd>V chat triggeru nastavte <em>Options → Response Mode</em> na <strong>Streaming</strong>. AI Agent streamuje ve výchozím nastavení. Aplikace streamovanou odpověď rozpozná sama.</dd>
+
+      <dt>Dostanu odpověď, i když aplikaci zavřu?</dt>
+      <dd>Ano. Zpráva se dokončí na pozadí a po doručení odpovědi přijde notifikace (pokud jste oznámení povolili).</dd>
+
+      <dt>Jak změním jazyk aplikace?</dt>
+      <dd>V Nastavení aplikace (ozubené kolo v seznamu serverů). Volba „Podle telefonu“ použije jazyk systému.</dd>
+
+      <dt>Jak smažu svá data?</dt>
+      <dd>Chat nebo server smažete ikonou koše přímo v aplikaci. Vše najednou smažete vymazáním dat aplikace v nastavení Androidu nebo odinstalováním. Autor žádná vaše data nemá. Podrobnosti v <a href="ochrana-soukromi.html">Zásadách ochrany soukromí</a>.</dd>
+    </dl>
+    </div>
+  </main>
+  <footer>
+    <div class="app-footer">
+    <a href="ochrana-soukromi.html">Ochrana soukromí</a>
+    <a href="podminky.html">Podmínky</a>
+    <a href="podpora.html">Podpora</a>
+    <a href="https://jankuthan.cz/">© 2026 Jan Kuthan</a>
+    </div>
+    <p class="app-footer__note">n8n je ochranná známka společnosti n8n GmbH. n8n Chat je nezávislá aplikace, není oficiálním produktem n8n ani s n8n GmbH nijak nesouvisí.</p>
+  </footer>
+</body>
+</html>

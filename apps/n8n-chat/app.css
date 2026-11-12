@@ -1,0 +1,156 @@
+/* Styly jen pro stránky aplikace n8n Chat (doplňují /css/style.css webu). */
+
+.app-hero {
+  text-align: center;
+}
+
+.app-hero__icon {
+  width: 96px;
+  height: 96px;
+  display: block;
+  margin: 0 auto 1.5rem;
+}
+
+.app-badge {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  font-weight: 700;
+  color: #6f6f6f;
+  background-color: #efefef;
+  border-radius: 2rem;
+}
+
+.app-shots {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 3rem 0 1rem;
+  padding: 0.5rem 0 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.app-shots figure {
+  flex: 0 0 auto;
+  width: 240px;
+  margin: 0;
+  scroll-snap-align: center;
+  text-align: center;
+}
+
+.app-shots img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 24px;
+  border: 6px solid #1f1f1f;
+  box-shadow: 0 10px 30px rgba(10, 66, 158, 0.18);
+}
+
+.app-shots figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.app-page .ai-page__card-icon {
+  max-width: 88px;
+  filter: none;
+  opacity: 1;
+}
+
+.app-section {
+  margin: 3.5rem 0 0;
+}
+
+.app-section h2 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.app-steps {
+  max-width: 640px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  line-height: 1.7;
+}
+
+.app-steps li {
+  margin-bottom: 0.75rem;
+}
+
+.app-page code {
+  padding: 0.1rem 0.35rem;
+  font-size: 0.9em;
+  background-color: var(--color-blue-tint);
+  border-radius: 4px;
+}
+
+.app-note {
+  max-width: 640px;
+  margin: 1.5rem auto 0;
+  color: #555;
+  text-align: center;
+}
+
+.app-legal a,
+.app-page .app-section a,
+.app-footer a {
+  color: var(--color-blue);
+}
+
+.app-legal h2 {
+  margin: 2rem 0 0.75rem;
+  font-size: 1.2rem;
+}
+
+.app-legal ul,
+.app-legal ol {
+  padding-left: 1.25rem;
+}
+
+.app-legal li {
+  margin-bottom: 0.5rem;
+}
+
+.app-legal__meta {
+  text-align: center;
+  color: #555;
+}
+
+.app-faq dt {
+  margin-top: 1.5rem;
+  font-weight: 700;
+}
+
+.app-faq dd {
+  margin: 0.4rem 0 0;
+}
+
+.app-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  justify-content: center;
+  padding: 2rem 1rem 1rem;
+  font-size: 0.9rem;
+}
+
+.app-footer__note {
+  padding: 0 1rem 3rem;
+  font-size: 0.8rem;
+  color: #6f6f6f;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .app-shots {
+    justify-content: flex-start;
+  }
+
+  .app-shots figure {
+    width: 70vw;
+    max-width: 260px;
+  }
+}

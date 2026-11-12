@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1976d2">
+  <title>n8n Chat – mobilní chat pro n8n workflow | Jan Kuthan</title>
+  <meta name="description" content="Android aplikace pro chat s n8n workflow a AI agenty: více serverů, session s pamětí, přílohy, Markdown, šifrované údaje a 8 jazyků.">
+  <meta name="author" content="Jan Kuthan">
+  <link rel="canonical" href="https://jankuthan.cz/apps/n8n-chat/">
+  <link rel="alternate" hreflang="cs" href="https://jankuthan.cz/apps/n8n-chat/">
+  <link rel="alternate" hreflang="en" href="https://jankuthan.cz/apps/n8n-chat/en/">
+  <link rel="alternate" hreflang="x-default" href="https://jankuthan.cz/apps/n8n-chat/en/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jankuthan.cz/apps/n8n-chat/">
+  <meta property="og:title" content="n8n Chat – mobilní chat pro n8n workflow | Jan Kuthan">
+  <meta property="og:description" content="Android aplikace pro chat s n8n workflow a AI agenty: více serverů, session s pamětí, přílohy, Markdown, šifrované údaje a 8 jazyků.">
+  <meta property="og:image" content="https://jankuthan.cz/apps/n8n-chat/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="cs_CZ">
+  <meta property="og:site_name" content="n8n Chat">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/svg+xml" href="img/icon.svg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "n8n Chat",
+    "operatingSystem": "Android",
+    "applicationCategory": "ProductivityApplication",
+    "url": "https://jankuthan.cz/apps/n8n-chat/",
+    "inLanguage": ["cs", "en", "zh", "de", "es", "fr", "pl", "sk"],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CZK" },
+    "author": { "@type": "Person", "@id": "https://jankuthan.cz/#person", "name": "Jan Kuthan", "url": "https://jankuthan.cz/" }
+  }
+  </script>
+  <link rel="stylesheet" href="../../css/style.css?v=202611102">
+  <link rel="stylesheet" href="app.css?v=202611121">
+</head>
+<body class="ai-page web-page app-page">
+  <nav class="page-nav">
+      <a href="ochrana-soukromi.html" class="homepage__tag page-nav__link">Ochrana soukromí</a>
+      <a href="podminky.html" class="homepage__tag page-nav__link">Podmínky</a>
+      <a href="podpora.html" class="homepage__tag page-nav__link">Podpora</a>
+      <a href="en/" class="homepage__tag page-nav__link" lang="en" hreflang="en">English</a>
+  </nav>
+  <main class="container">
+    <div class="app-hero">
+      <img src="img/icon.svg" alt="" class="app-hero__icon" width="96" height="96">
+      <h1 class="ai-page__heading">n8n Chat</h1>
+      <p class="ai-page__intro">Mobilní chat pro vaše n8n workflow a AI agenty. Pište z telefonu, odpověď přijde z posledního nodu workflow.</p>
+      <p class="page-cta">
+        <!-- Po zveřejnění nahradit odkazem: https://play.google.com/store/apps/details?id=cz.jankuthan.n8nchat -->
+        <span class="app-badge">Již brzy na Google Play</span>
+      </p>
+    </div>
+
+    <div class="app-shots">
+      <figure><img src="img/cs-chat.webp" alt="Chat s AI agentem v n8n s odpovědí ve formátu Markdown" width="540" height="1200" loading="lazy"><figcaption>Odpovědi s formátováním</figcaption></figure>
+      <figure><img src="img/cs-list-dark.webp" alt="Seznam chatů jednoho serveru s vyhledáváním v tmavém režimu" width="540" height="1200" loading="lazy"><figcaption>Každý chat je session</figcaption></figure>
+      <figure><img src="img/cs-help.webp" alt="Návod k nastavení n8n s printscreeny přímo v aplikaci" width="540" height="1200" loading="lazy"><figcaption>Návod přímo v aplikaci</figcaption></figure>
+    </div>
+
+    <div class="ai-page__cards">
+      <div class="ai-page__card">
+        <img src="img/feature-chat.svg" alt="" class="ai-page__card-icon" width="88" height="88">
+        <h2 class="ai-page__card-heading">Chat s vaším workflow</h2>
+        <ul class="subpage__card-list">
+          <li>Zprávy jdou přímo na webhook vašeho n8n, odpověď přijde z posledního nodu.</li>
+          <li>Odpovědi se zobrazí s Markdownem – seznamy, tučné písmo, kód.</li>
+          <li>Obrázek nebo PDF z workflow se zobrazí jako příloha.</li>
+          <li>Odpověď naskakuje průběžně (streaming) a dorazí i po zavření aplikace – s notifikací.</li>
+        </ul>
+      </div>
+      <div class="ai-page__card">
+        <img src="img/feature-servers.svg" alt="" class="ai-page__card-icon" width="88" height="88">
+        <h2 class="ai-page__card-heading">Servery a session</h2>
+        <ul class="subpage__card-list">
+          <li>Libovolný počet n8n serverů a webhooků.</li>
+          <li>Každý chat je samostatná session s vlastním ID – AI agent si pamatuje kontext.</li>
+          <li>Starší chaty zůstávají i s historií, dají se prohledávat, přejmenovat a připnout.</li>
+          <li>Zástupce serveru na ploše otevře novou session jedním ťuknutím.</li>
+        </ul>
+      </div>
+      <div class="ai-page__card">
+        <img src="img/feature-lock.svg" alt="" class="ai-page__card-icon" width="88" height="88">
+        <h2 class="ai-page__card-heading">Bezpečnost a soukromí</h2>
+        <ul class="subpage__card-list">
+          <li>Autentizace Basic, Header, JWT i přihlášení účtem n8n (n8n User Auth).</li>
+          <li>Údaje i historie jsou v telefonu šifrované, komunikace jen přes HTTPS.</li>
+          <li>Volitelný zámek aplikace otiskem prstu, obličejem nebo zámkem obrazovky.</li>
+          <li>Žádné účty, reklamy ani analytika – data jdou jen na váš server.</li>
+        </ul>
+      </div>
+      <div class="ai-page__card">
+        <img src="img/feature-attach.svg" alt="" class="ai-page__card-icon" width="88" height="88">
+        <h2 class="ai-page__card-heading">Přílohy, hlas a sdílení</h2>
+        <ul class="subpage__card-list">
+          <li>Posílejte soubory i fotky přímo z fotoaparátu, workflow je dostane jako binární data.</li>
+          <li>Diktujte zprávy hlasem a nechte si odpovědi přečíst nahlas.</li>
+          <li>Sdílejte text nebo soubory z jiných aplikací rovnou do chatu.</li>
+        </ul>
+      </div>
+      <div class="ai-page__card">
+        <img src="img/feature-guide.svg" alt="" class="ai-page__card-icon" width="88" height="88">
+        <h2 class="ai-page__card-heading">Snadné nastavení</h2>
+        <ul class="subpage__card-list">
+          <li>Stačí výchozí nastavení n8n s jedinou změnou.</li>
+          <li>Návod s printscreeny krok za krokem je přímo v aplikaci.</li>
+          <li>Pokročilí si mohou upravit formát požadavku i cestu k odpovědi.</li>
+        </ul>
+      </div>
+      <div class="ai-page__card">
+        <img src="img/feature-language.svg" alt="" class="ai-page__card-icon" width="88" height="88">
+        <h2 class="ai-page__card-heading">8 jazyků a tmavý režim</h2>
+        <ul class="subpage__card-list">
+          <li>Čeština, angličtina, čínština, němčina, španělština, francouzština, polština a slovenština.</li>
+          <li>Jazyk podle telefonu nebo vlastní volba.</li>
+          <li>Světlý a tmavý režim podle nastavení telefonu.</li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="app-section">
+      <h2>Jak začít</h2>
+      <ol class="app-steps">
+        <li>V n8n přidejte trigger <strong>On chat message</strong> a zapněte <strong>Make Chat Publicly Available</strong>. Zkopírujte <em>Chat URL</em>.</li>
+        <li>Připojte <strong>AI Agent</strong> s modelem a <strong>Simple Memory</strong> – obojí ve výchozím nastavení – a workflow publikujte.</li>
+        <li>V aplikaci přidejte server, vložte Chat URL a pište.</li>
+      </ol>
+      <p class="app-note">Podrobný návod s printscreeny, zabezpečením přístupu a pokročilou variantou s Webhook node najdete přímo v aplikaci pod ikonou ⓘ.</p>
+    </section>
+
+    <section class="app-section">
+      <h2>Autor</h2>
+      <p class="app-note">Aplikaci vytvořil <a href="https://jankuthan.cz/">Jan Kuthan</a> – senior vývojář, architekt a team lead se zaměřením na vývoj webových aplikací, praktické využití AI a školení. Dotazy a nápady posílejte přes stránku <a href="podpora.html">Podpora</a>.</p>
+    </section>
+  </main>
+  <footer>
+    <div class="app-footer">
+    <a href="ochrana-soukromi.html">Ochrana soukromí</a>
+    <a href="podminky.html">Podmínky</a>
+    <a href="podpora.html">Podpora</a>
+    <a href="https://jankuthan.cz/">© 2026 Jan Kuthan</a>
+    </div>
+    <p class="app-footer__note">n8n je ochranná známka společnosti n8n GmbH. n8n Chat je nezávislá aplikace, není oficiálním produktem n8n ani s n8n GmbH nijak nesouvisí.</p>
+  </footer>
+</body>
+</html>

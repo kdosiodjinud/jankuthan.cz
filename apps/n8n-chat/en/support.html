@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1976d2">
+  <title>Support – n8n Chat</title>
+  <meta name="description" content="Contact and FAQ for the n8n Chat Android app.">
+  <meta name="author" content="Jan Kuthan">
+  <link rel="canonical" href="https://jankuthan.cz/apps/n8n-chat/en/support.html">
+  <link rel="alternate" hreflang="cs" href="https://jankuthan.cz/apps/n8n-chat/podpora.html">
+  <link rel="alternate" hreflang="en" href="https://jankuthan.cz/apps/n8n-chat/en/support.html">
+  <link rel="alternate" hreflang="x-default" href="https://jankuthan.cz/apps/n8n-chat/en/support.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jankuthan.cz/apps/n8n-chat/en/support.html">
+  <meta property="og:title" content="Support – n8n Chat">
+  <meta property="og:description" content="Contact and FAQ for the n8n Chat Android app.">
+  <meta property="og:image" content="https://jankuthan.cz/apps/n8n-chat/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="n8n Chat">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/svg+xml" href="../img/icon.svg">
+
+  <link rel="stylesheet" href="../../../css/style.css?v=202611102">
+  <link rel="stylesheet" href="../app.css?v=202611121">
+</head>
+<body class="ai-page web-page app-page">
+  <nav class="page-nav">
+      <a href="./" class="page-nav__back" aria-label="Back to n8n Chat" title="Back to n8n Chat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg></a>
+      <a href="privacy.html" class="homepage__tag page-nav__link">Privacy</a>
+      <a href="terms.html" class="homepage__tag page-nav__link">Terms</a>
+      <a href="support.html" class="homepage__tag page-nav__link page-nav__link--active">Support</a>
+      <a href="../podpora.html" class="homepage__tag page-nav__link" lang="cs" hreflang="cs">Čeština</a>
+  </nav>
+  <main class="container">
+    <div class="app-legal">
+    <h1 class="ai-page__heading">Support</h1>
+    <p class="ai-page__intro">Something does not work, or you have an idea for an improvement? Get in touch.</p>
+
+    <h2>Contact</h2>
+    <p>E-mail: <a href="mailto:jankuthan@email.cz?subject=n8n%20Chat">jankuthan@email.cz</a><br>
+      Please include the app version (Settings → bottom), Android version, n8n version and a description of the problem. <strong>Never send passwords, tokens or webhook addresses containing secret keys.</strong></p>
+
+    <h2>FAQ</h2>
+    <dl class="app-faq">
+      <dt>How do I set up n8n to work with the app?</dt>
+      <dd>All you need is the <strong>On chat message</strong> trigger with <strong>Make Chat Publicly Available</strong> turned on, an AI Agent with a model and Simple Memory with default settings, and a published workflow. Paste the Chat URL as the server address in the app. A detailed guide with screenshots is in the app under the ⓘ icon.</dd>
+
+      <dt>The app says “Webhook not found (HTTP 404)”.</dt>
+      <dd>The workflow is not published (the <em>Publish</em> button) or the address is wrong. For the chat trigger the address must end with <code>/chat</code>; for the Webhook node use the <em>Production URL</em>, not the Test URL.</dd>
+
+      <dt>The app says “Access denied (HTTP 401/403)”.</dt>
+      <dd>The authentication in the app does not match n8n. Check the authentication type and credentials. With n8n account sign-in the session may have expired (7 days by default) – sign in again in the server settings.</dd>
+
+      <dt>Why can’t I use an http:// address?</dt>
+      <dd>For security the app communicates over encrypted HTTPS only. For n8n on your home network use, for example, a reverse proxy with a certificate.</dd>
+
+      <dt>I see JSON instead of text, or nothing at all.</dt>
+      <dd>The app reads the text from the <code>output</code> key (AI Agent output), or <code>text</code>, <code>message</code> and others. Set a different path in the server’s “Path to the text in the JSON response” field. For the Webhook node make sure Respond is set to <em>When Last Node Finishes</em>.</dd>
+
+      <dt>The AI agent does not remember previous messages.</dt>
+      <dd>Connect Simple Memory (or another memory) to the agent. With the chat trigger it works with default settings; for the Webhook node set the session key to <code>{{ $json.body.sessionId }}</code>. A new session in the app intentionally starts with a clean memory.</dd>
+
+      <dt>The reply appears all at once instead of word by word.</dt>
+      <dd>In the chat trigger set <em>Options → Response Mode</em> to <strong>Streaming</strong>. The AI Agent streams by default and the app detects a streamed reply automatically.</dd>
+
+      <dt>Will I get the reply if I close the app?</dt>
+      <dd>Yes. The message is completed in the background and a notification arrives with the reply (if notifications are allowed).</dd>
+
+      <dt>How do I change the app language?</dt>
+      <dd>In the app Settings (gear icon in the server list). “System default” uses the phone language.</dd>
+
+      <dt>How do I delete my data?</dt>
+      <dd>Delete a chat or server with the trash icon in the app. Delete everything at once by clearing the app data in Android settings or uninstalling the app. The developer holds none of your data. See the <a href="privacy.html">Privacy Policy</a> for details.</dd>
+    </dl>
+    </div>
+  </main>
+  <footer>
+    <div class="app-footer">
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="support.html">Support</a>
+    <a href="https://jankuthan.cz/">© 2026 Jan Kuthan</a>
+    </div>
+    <p class="app-footer__note">n8n is a trademark of n8n GmbH. n8n Chat is an independent app; it is not an official n8n product and is not affiliated with n8n GmbH.</p>
+  </footer>
+</body>
+</html>

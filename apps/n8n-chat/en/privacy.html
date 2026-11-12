@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1976d2">
+  <title>Privacy Policy – n8n Chat</title>
+  <meta name="description" content="How the n8n Chat app handles data: nothing is sent to the developer, data stays encrypted on your phone and goes only to your n8n server.">
+  <meta name="author" content="Jan Kuthan">
+  <link rel="canonical" href="https://jankuthan.cz/apps/n8n-chat/en/privacy.html">
+  <link rel="alternate" hreflang="cs" href="https://jankuthan.cz/apps/n8n-chat/ochrana-soukromi.html">
+  <link rel="alternate" hreflang="en" href="https://jankuthan.cz/apps/n8n-chat/en/privacy.html">
+  <link rel="alternate" hreflang="x-default" href="https://jankuthan.cz/apps/n8n-chat/en/privacy.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jankuthan.cz/apps/n8n-chat/en/privacy.html">
+  <meta property="og:title" content="Privacy Policy – n8n Chat">
+  <meta property="og:description" content="How the n8n Chat app handles data: nothing is sent to the developer, data stays encrypted on your phone and goes only to your n8n server.">
+  <meta property="og:image" content="https://jankuthan.cz/apps/n8n-chat/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="n8n Chat">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/svg+xml" href="../img/icon.svg">
+
+  <link rel="stylesheet" href="../../../css/style.css?v=202611102">
+  <link rel="stylesheet" href="../app.css?v=202611121">
+</head>
+<body class="ai-page web-page app-page">
+  <nav class="page-nav">
+      <a href="./" class="page-nav__back" aria-label="Back to n8n Chat" title="Back to n8n Chat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg></a>
+      <a href="privacy.html" class="homepage__tag page-nav__link page-nav__link--active">Privacy</a>
+      <a href="terms.html" class="homepage__tag page-nav__link">Terms</a>
+      <a href="support.html" class="homepage__tag page-nav__link">Support</a>
+      <a href="../ochrana-soukromi.html" class="homepage__tag page-nav__link" lang="cs" hreflang="cs">Čeština</a>
+  </nav>
+  <main class="container">
+    <div class="app-legal">
+    <h1 class="ai-page__heading">n8n Chat Privacy Policy</h1>
+    <p class="app-legal__meta">Effective 12 November 2026</p>
+    <p>This policy describes how the Android app <strong>n8n Chat</strong> (the “app”) handles your data. In short: <strong>the app sends no data to its author</strong>. Everything you enter stays on your phone or goes only to the n8n server you configure yourself.</p>
+
+    <h2>1. Developer and contact</h2>
+    <p>Jan Kuthan, company ID (IČ): 74900722, Mariánovice 42, 256 01 Benešov, Czech Republic<br>
+      e-mail: <a href="mailto:jankuthan@email.cz">jankuthan@email.cz</a></p>
+
+    <h2>2. What the app does not do</h2>
+    <ul>
+      <li>it requires no registration or account with the developer,</li>
+      <li>it contains no ads, analytics, tracking or crash-reporting tools,</li>
+      <li>it sends no data about you, your device or your app usage to the developer or any other third party,</li>
+      <li>it does not access your location, contacts, photos or other content on your phone, except files and photos you choose, take or share into the app as attachments.</li>
+    </ul>
+
+    <h2>3. Data stored on your phone</h2>
+    <p>The app stores the following data that you enter yourself:</p>
+    <ul>
+      <li><strong>server settings</strong> – name, webhook address, request template and credentials for the selected authentication (username and password for Basic, header name and value, JWT token, e-mail and the <code>n8n-auth</code> sign-in cookie for n8n User Auth); <strong>your n8n account password is not stored</strong>, it is used only once to sign in,</li>
+      <li><strong>chat history</strong> – your messages, workflow replies and the session identifier,</li>
+      <li><strong>attachments</strong> – copies of files you send and files received in replies.</li>
+    </ul>
+    <p>Settings and history are encrypted (AES-256-GCM) with a key held in the Android Keystore, which cannot be exported from the phone. Attachments are kept in the app’s private storage, which other apps cannot access. Cloud backup and device-to-device transfer of this data are disabled.</p>
+
+    <h2>4. Who receives your data</h2>
+    <p>The app communicates <strong>only with the n8n servers you configure</strong>, and only over encrypted HTTPS. When you send a message, it sends the message text, the session identifier, any attachments, other fields of the request template and the credentials of the selected authentication. When signing in with an n8n account, it sends your e-mail, password and optional MFA code to the n8n address you entered.</p>
+    <p>The developer has no access to this data. Its further processing is governed by the operator of the n8n server (usually you or your organisation) and by the services your workflow uses, such as AI model providers. Do not send data to a workflow that you do not want processed on that server.</p>
+
+    <h2>5. Features using phone services</h2>
+    <ul>
+      <li><strong>Dictation</strong> – after you tap the microphone, the phone’s system speech recognition service (usually Google) converts your voice to text. The app receives only the resulting text; voice processing is governed by that provider’s policy.</li>
+      <li><strong>Read aloud</strong> – replies are read by the phone’s system text-to-speech engine.</li>
+      <li><strong>Camera</strong> – photos are taken by the system camera app and saved directly into the app’s storage; the app has no access to the camera or gallery.</li>
+      <li><strong>App lock</strong> – verification (fingerprint, face, screen lock) is performed by Android; the app has no access to biometric data. With the lock on, app content is hidden from the recent apps preview and from notifications.</li>
+      <li><strong>Sharing from other apps</strong> – shared text and files are placed into a draft message and sent only when you send it.</li>
+      <li><strong>Home screen shortcut</strong> – contains only the server name and its internal identifier.</li>
+    </ul>
+
+    <h2>6. App permissions</h2>
+    <ul>
+      <li><strong>Internet</strong> – to communicate with your n8n servers.</li>
+      <li><strong>Notifications</strong> – to let you know the workflow replied while the app is not open. You can revoke it at any time in Android settings.</li>
+    </ul>
+    <p>Attachments are chosen with the system file picker and photos are taken by the system camera, so the app needs no storage, camera or microphone permissions.</p>
+
+    <h2>7. Retention and deletion</h2>
+    <p>Data on your phone is kept until you delete it. You can delete it at any time:</p>
+    <ul>
+      <li>by deleting a chat (including its history and attachments) or a server (including all its chats) in the app,</li>
+      <li>by clearing the app data in Android settings or uninstalling the app – this deletes everything, including the encryption key.</li>
+    </ul>
+    <p>Data stored on your n8n server (for example AI agent memory or workflow execution history) is not managed by the app; its deletion is the responsibility of the server operator.</p>
+
+    <h2>8. Children</h2>
+    <p>The app is a tool for n8n users and is not directed at children under 13.</p>
+
+    <h2>9. This website</h2>
+    <p>The app pages on jankuthan.cz use no cookies or analytics. The hosting providers (GitHub and Amazon Web Services) process technical data such as IP address and browser details when pages are displayed, to operate and secure the website.</p>
+
+    <h2>10. Your rights and questions</h2>
+    <p>Send privacy questions to <a href="mailto:jankuthan@email.cz">jankuthan@email.cz</a>. Where the developer processes your personal data (for example when you send an e-mail), you have the right of access, rectification, erasure, restriction, portability and objection under the GDPR. You may also lodge a complaint with the Czech Office for Personal Data Protection (Úřad pro ochranu osobních údajů), Pplk. Sochora 27, 170 00 Prague 7, <a href="https://uoou.gov.cz/en/">uoou.gov.cz</a>, or your local supervisory authority.</p>
+
+    <h2>11. Changes</h2>
+    <p>If the way data is handled changes, I will update this policy and its effective date. The current version is always on this page.</p>
+    </div>
+  </main>
+  <footer>
+    <div class="app-footer">
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="support.html">Support</a>
+    <a href="https://jankuthan.cz/">© 2026 Jan Kuthan</a>
+    </div>
+    <p class="app-footer__note">n8n is a trademark of n8n GmbH. n8n Chat is an independent app; it is not an official n8n product and is not affiliated with n8n GmbH.</p>
+  </footer>
+</body>
+</html>
