@@ -58,14 +58,14 @@
     <h2>3. Údaje uložené v telefonu</h2>
     <p>Aplikace ukládá v telefonu tyto údaje, které do ní sami zadáte:</p>
     <ul>
-      <li><strong>nastavení serverů</strong> – název, adresu webhooku, šablonu požadavku a přihlašovací údaje podle zvolené autentizace (uživatelské jméno a heslo pro Basic, název a hodnotu hlavičky, JWT token, e-mail a přihlašovací cookie <code>n8n-auth</code> pro n8n User Auth); <strong>heslo k účtu n8n se neukládá</strong>, použije se jen jednorázově k přihlášení,</li>
+      <li><strong>nastavení serverů</strong> – název, adresu webhooku, šablonu požadavku a přihlašovací údaje podle zvolené autentizace (uživatelské jméno a heslo pro Basic, název a hodnotu hlavičky, JWT token, e-mail a přihlašovací cookie <code>n8n-auth</code> pro n8n User Auth) a volitelně API klíč n8n pro načtení odpovědí z historie běhů; <strong>heslo k účtu n8n se neukládá</strong>, použije se jen jednorázově k přihlášení,</li>
       <li><strong>historii chatů</strong> – vaše zprávy, odpovědi workflow a identifikátor session,</li>
       <li><strong>přílohy</strong> – kopie souborů, které odešlete, a soubory přijaté v odpovědích.</li>
     </ul>
     <p>Nastavení a historie jsou uložené šifrovaně (AES-256-GCM) klíčem v systémovém úložišti Android Keystore, který nelze z telefonu exportovat. Přílohy jsou v privátním úložišti aplikace, kam ostatní aplikace nemají přístup. Zálohování těchto dat do cloudu a jejich přenos na jiné zařízení je v aplikaci vypnuté.</p>
 
     <h2>4. Komu se údaje předávají</h2>
-    <p>Aplikace komunikuje <strong>výhradně s n8n servery, které si sami nastavíte</strong>, a to pouze šifrovaně přes HTTPS. Při odeslání zprávy předá serveru text zprávy, identifikátor session, případné přílohy, další pole z šablony požadavku a přihlašovací údaje zvolené autentizace. Při přihlášení účtem n8n odešle na zadanou adresu n8n váš e-mail, heslo a případně MFA kód.</p>
+    <p>Aplikace komunikuje <strong>výhradně s n8n servery, které si sami nastavíte</strong>, a to pouze šifrovaně přes HTTPS. Při odeslání zprávy předá serveru text zprávy, identifikátor session, případné přílohy, další pole z šablony požadavku a přihlašovací údaje zvolené autentizace. Při přihlášení účtem n8n odešle na zadanou adresu n8n váš e-mail, heslo a případně MFA kód. Pokud jste v nastavení serveru zadali API klíč n8n a aplikace se během čekání na odpověď ukončila, načte odpověď přes API n8n z historie běhů (executions) na zadané adrese n8n – klíč se posílá jen tam.</p>
     <p>Autor aplikace k těmto údajům nemá přístup. Jejich další zpracování se řídí pravidly provozovatele daného n8n serveru (obvykle vy nebo vaše organizace) a služeb, které workflow používá – například poskytovatelů AI modelů. Neposílejte proto do workflow údaje, jejichž zpracování na daném serveru nechcete.</p>
 
     <h2>5. Funkce využívající služby telefonu</h2>

@@ -58,14 +58,14 @@
     <h2>3. Data stored on your phone</h2>
     <p>The app stores the following data that you enter yourself:</p>
     <ul>
-      <li><strong>server settings</strong> – name, webhook address, request template and credentials for the selected authentication (username and password for Basic, header name and value, JWT token, e-mail and the <code>n8n-auth</code> sign-in cookie for n8n User Auth); <strong>your n8n account password is not stored</strong>, it is used only once to sign in,</li>
+      <li><strong>server settings</strong> – name, webhook address, request template and credentials for the selected authentication (username and password for Basic, header name and value, JWT token, e-mail and the <code>n8n-auth</code> sign-in cookie for n8n User Auth) and optionally an n8n API key for loading replies from the execution history; <strong>your n8n account password is not stored</strong>, it is used only once to sign in,</li>
       <li><strong>chat history</strong> – your messages, workflow replies and the session identifier,</li>
       <li><strong>attachments</strong> – copies of files you send and files received in replies.</li>
     </ul>
     <p>Settings and history are encrypted (AES-256-GCM) with a key held in the Android Keystore, which cannot be exported from the phone. Attachments are kept in the app’s private storage, which other apps cannot access. Cloud backup and device-to-device transfer of this data are disabled.</p>
 
     <h2>4. Who receives your data</h2>
-    <p>The app communicates <strong>only with the n8n servers you configure</strong>, and only over encrypted HTTPS. When you send a message, it sends the message text, the session identifier, any attachments, other fields of the request template and the credentials of the selected authentication. When signing in with an n8n account, it sends your e-mail, password and optional MFA code to the n8n address you entered.</p>
+    <p>The app communicates <strong>only with the n8n servers you configure</strong>, and only over encrypted HTTPS. When you send a message, it sends the message text, the session identifier, any attachments, other fields of the request template and the credentials of the selected authentication. When signing in with an n8n account, it sends your e-mail, password and optional MFA code to the n8n address you entered. If you entered an n8n API key in the server settings and the app was closed while waiting for a reply, it loads the reply from the execution history via the n8n API at the n8n address you entered – the key is sent only there.</p>
     <p>The developer has no access to this data. Its further processing is governed by the operator of the n8n server (usually you or your organisation) and by the services your workflow uses, such as AI model providers. Do not send data to a workflow that you do not want processed on that server.</p>
 
     <h2>5. Features using phone services</h2>
