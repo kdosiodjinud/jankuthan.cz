@@ -21,6 +21,7 @@ Zkušenosti: Prusa Research (senior vývojář), VysokéŠkoly.cz (údržba kód
 
 - [Úvodní stránka](https://jankuthan.cz/): kontakt a přehled oblastí (Web, AI, Školení).
 - [Životopis](https://jankuthan.cz/cv.html): pracovní historie, dovednosti a vlastní projekty.
+- [Projekty](https://jankuthan.cz/projekty/): aplikace n8n Chat (Android), stacklinker.com, ai-slovnik.cz, open source (Home Assistant integrace, PHP knihovny pro AI, rozšíření pro Chrome) a prodané projekty.
 
 ## Optional
 
