@@ -154,3 +154,11 @@
     max-width: 260px;
   }
 }
+
+.app-lang {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0 0 1.5rem;
+}
