@@ -131,6 +131,12 @@ body {
   text-decoration: underline;
 }
 
+.homepage__ico {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #757575;
+}
+
 .homepage__contact .homepage__shop {
   margin-top: 1rem;
   font-size: 1rem;
