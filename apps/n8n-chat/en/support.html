@@ -49,19 +49,19 @@
     <h2>FAQ</h2>
     <dl class="app-faq">
       <dt>How do I set up n8n to work with the app?</dt>
-      <dd>All you need is the <strong>On chat message</strong> trigger with <strong>Make Chat Publicly Available</strong> turned on, an AI Agent with a model and Simple Memory with default settings, and a published workflow. Paste the Chat URL as the server address in the app. A detailed guide with screenshots is in the app under the ⓘ icon.</dd>
+      <dd>All you need is the <strong>On chat message</strong> trigger with <strong>Make Chat Publicly Available</strong> turned on, an AI Agent with a model and Simple Memory with default settings, and a published workflow. Paste the Chat URL as the webhook address in the app. A detailed guide with screenshots is in the app under the ⓘ icon.</dd>
 
       <dt>The app says “Webhook not found (HTTP 404)”.</dt>
       <dd>The workflow is not published (the <em>Publish</em> button) or the address is wrong. For the chat trigger the address must end with <code>/chat</code>; for the Webhook node use the <em>Production URL</em>, not the Test URL.</dd>
 
       <dt>The app says “Access denied (HTTP 401/403)”.</dt>
-      <dd>The authentication in the app does not match n8n. Check the authentication type and credentials. With n8n account sign-in the session may have expired (7 days by default) – sign in again in the server settings.</dd>
+      <dd>The authentication in the app does not match n8n. Check the authentication type and credentials. With n8n account sign-in the session may have expired (7 days by default) – sign in again in the webhook settings.</dd>
 
       <dt>Why can’t I use an http:// address?</dt>
       <dd>For security the app communicates over encrypted HTTPS only. For n8n on your home network use, for example, a reverse proxy with a certificate.</dd>
 
       <dt>I see JSON instead of text, or nothing at all.</dt>
-      <dd>The app reads the text from the <code>output</code> key (AI Agent output), or <code>text</code>, <code>message</code> and others. Set a different path in the server’s “Path to the text in the JSON response” field. For the Webhook node make sure Respond is set to <em>When Last Node Finishes</em>.</dd>
+      <dd>The app reads the text from the <code>output</code> key (AI Agent output), or <code>text</code>, <code>message</code> and others. Set a different path in the webhook’s “Path to the text in the JSON response” field. For the Webhook node make sure Respond is set to <em>When Last Node Finishes</em>.</dd>
 
       <dt>The AI agent does not remember previous messages.</dt>
       <dd>Connect Simple Memory (or another memory) to the agent. With the chat trigger it works with default settings; for the Webhook node set the session key to <code>{{ $json.body.sessionId }}</code>. A new session in the app intentionally starts with a clean memory.</dd>
@@ -73,10 +73,10 @@
       <dd>Yes. The message is completed in the background and a notification arrives with the reply (if notifications are allowed).</dd>
 
       <dt>How do I change the app language?</dt>
-      <dd>In the app Settings (gear icon in the server list). “System default” uses the phone language.</dd>
+      <dd>In the app Settings (gear icon in the webhook list). “System default” uses the phone language.</dd>
 
       <dt>How do I delete my data?</dt>
-      <dd>Delete a chat or server with the trash icon in the app. Delete everything at once by clearing the app data in Android settings or uninstalling the app. The developer holds none of your data. See the <a href="privacy.html">Privacy Policy</a> for details.</dd>
+      <dd>Delete a chat or webhook with the trash icon in the app. Delete everything at once by clearing the app data in Android settings or uninstalling the app. The developer holds none of your data. See the <a href="privacy.html">Privacy Policy</a> for details.</dd>
     </dl>
     </div>
   </main>

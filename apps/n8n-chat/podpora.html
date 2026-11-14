@@ -49,19 +49,19 @@
     <h2>Časté dotazy</h2>
     <dl class="app-faq">
       <dt>Jak nastavit n8n, aby s aplikací fungovalo?</dt>
-      <dd>Stačí trigger <strong>On chat message</strong> se zapnutou volbou <strong>Make Chat Publicly Available</strong>, AI Agent s modelem a Simple Memory ve výchozím nastavení a publikované workflow. Chat URL vložte v aplikaci jako adresu serveru. Podrobný návod s printscreeny je v aplikaci pod ikonou ⓘ.</dd>
+      <dd>Stačí trigger <strong>On chat message</strong> se zapnutou volbou <strong>Make Chat Publicly Available</strong>, AI Agent s modelem a Simple Memory ve výchozím nastavení a publikované workflow. Chat URL vložte v aplikaci jako adresu webhooku. Podrobný návod s printscreeny je v aplikaci pod ikonou ⓘ.</dd>
 
       <dt>Aplikace hlásí „Webhook nenalezen (HTTP 404)“.</dt>
       <dd>Workflow není publikované (tlačítko <em>Publish</em>), nebo je adresa špatně. U chat triggeru musí adresa končit na <code>/chat</code>; u Webhook node použijte <em>Production URL</em>, ne Test URL.</dd>
 
       <dt>Aplikace hlásí „Přístup odepřen (HTTP 401/403)“.</dt>
-      <dd>Autentizace v aplikaci neodpovídá nastavení v n8n. Zkontrolujte typ autentizace a údaje. U přihlášení účtem n8n mohlo přihlášení vypršet (výchozí platnost je 7 dní) – přihlaste se znovu v nastavení serveru.</dd>
+      <dd>Autentizace v aplikaci neodpovídá nastavení v n8n. Zkontrolujte typ autentizace a údaje. U přihlášení účtem n8n mohlo přihlášení vypršet (výchozí platnost je 7 dní) – přihlaste se znovu v nastavení webhooku.</dd>
 
       <dt>Proč nejde zadat adresa s http://?</dt>
       <dd>Kvůli bezpečnosti aplikace komunikuje jen přes šifrované HTTPS. Pro n8n v domácí síti použijte například reverzní proxy s certifikátem.</dd>
 
       <dt>Místo textu se zobrazí JSON, nebo nic.</dt>
-      <dd>Aplikace čte text z klíče <code>output</code> (výstup AI Agenta), případně <code>text</code>, <code>message</code> a dalších. Jinou cestu nastavíte u serveru v poli „Cesta k textu v JSON odpovědi“. U Webhook node zkontrolujte, že má Respond nastavené na <em>When Last Node Finishes</em>.</dd>
+      <dd>Aplikace čte text z klíče <code>output</code> (výstup AI Agenta), případně <code>text</code>, <code>message</code> a dalších. Jinou cestu nastavíte u webhooku v poli „Cesta k textu v JSON odpovědi“. U Webhook node zkontrolujte, že má Respond nastavené na <em>When Last Node Finishes</em>.</dd>
 
       <dt>AI agent si nepamatuje předchozí zprávy.</dt>
       <dd>Připojte k agentovi Simple Memory (nebo jinou paměť). S chat triggerem funguje ve výchozím nastavení; u Webhook node nastavte klíč session na <code>{{ $json.body.sessionId }}</code>. Nová session v aplikaci záměrně začíná s čistou pamětí.</dd>
@@ -73,10 +73,10 @@
       <dd>Ano. Zpráva se dokončí na pozadí a po doručení odpovědi přijde notifikace (pokud jste oznámení povolili).</dd>
 
       <dt>Jak změním jazyk aplikace?</dt>
-      <dd>V Nastavení aplikace (ozubené kolo v seznamu serverů). Volba „Podle telefonu“ použije jazyk systému.</dd>
+      <dd>V Nastavení aplikace (ozubené kolo v seznamu webhooků). Volba „Podle telefonu“ použije jazyk systému.</dd>
 
       <dt>Jak smažu svá data?</dt>
-      <dd>Chat nebo server smažete ikonou koše přímo v aplikaci. Vše najednou smažete vymazáním dat aplikace v nastavení Androidu nebo odinstalováním. Autor žádná vaše data nemá. Podrobnosti v <a href="ochrana-soukromi.html">Zásadách ochrany soukromí</a>.</dd>
+      <dd>Chat nebo webhook smažete ikonou koše přímo v aplikaci. Vše najednou smažete vymazáním dat aplikace v nastavení Androidu nebo odinstalováním. Autor žádná vaše data nemá. Podrobnosti v <a href="ochrana-soukromi.html">Zásadách ochrany soukromí</a>.</dd>
     </dl>
     </div>
   </main>

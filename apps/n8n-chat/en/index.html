@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#1976d2">
   <title>n8n Chat – mobile chat for n8n workflows | Jan Kuthan</title>
-  <meta name="description" content="Android app to chat with n8n workflows and AI agents: multiple servers, sessions with memory, attachments, Markdown, encrypted credentials and 8 languages.">
+  <meta name="description" content="Android app to chat with n8n workflows and AI agents: multiple webhooks, sessions with memory, attachments, Markdown, a home screen widget, hands-free mode, encrypted credentials and 8 languages.">
   <meta name="author" content="Jan Kuthan">
   <link rel="canonical" href="https://jankuthan.cz/apps/n8n-chat/en/">
   <link rel="alternate" hreflang="cs" href="https://jankuthan.cz/apps/n8n-chat/">
@@ -15,7 +15,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jankuthan.cz/apps/n8n-chat/en/">
   <meta property="og:title" content="n8n Chat – mobile chat for n8n workflows | Jan Kuthan">
-  <meta property="og:description" content="Android app to chat with n8n workflows and AI agents: multiple servers, sessions with memory, attachments, Markdown, encrypted credentials and 8 languages.">
+  <meta property="og:description" content="Android app to chat with n8n workflows and AI agents: multiple webhooks, sessions with memory, attachments, Markdown, a home screen widget, hands-free mode, encrypted credentials and 8 languages.">
   <meta property="og:image" content="https://jankuthan.cz/apps/n8n-chat/img/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -65,7 +65,9 @@
 
     <div class="app-shots">
       <figure><img src="../img/en-chat.webp" alt="Chat with an n8n AI agent showing a Markdown-formatted reply" width="540" height="1200" loading="lazy"><figcaption>Formatted replies</figcaption></figure>
-      <figure><img src="../img/en-list-dark.webp" alt="List of chats of one server with search, dark mode" width="540" height="1200" loading="lazy"><figcaption>Every chat is a session</figcaption></figure>
+      <figure><img src="../img/en-actions.webp" alt="Long-press menu on a message: edit and resend, regenerate reply, share, forward" width="540" height="1200" loading="lazy"><figcaption>Edit, regenerate, forward</figcaption></figure>
+      <figure><img src="../img/en-servers.webp" alt="List of webhooks with color labels" width="540" height="1200" loading="lazy"><figcaption>Webhooks with colors</figcaption></figure>
+      <figure><img src="../img/en-list-dark.webp" alt="List of chats of one webhook with search, dark mode" width="540" height="1200" loading="lazy"><figcaption>Every chat is a session</figcaption></figure>
       <figure><img src="../img/en-help.webp" alt="Step-by-step n8n setup guide with screenshots inside the app" width="540" height="1200" loading="lazy"><figcaption>Built-in setup guide</figcaption></figure>
     </div>
 
@@ -78,16 +80,17 @@
           <li>Replies are rendered with Markdown – lists, bold text, code.</li>
           <li>An image or PDF returned by the workflow is shown as an attachment.</li>
           <li>Replies stream in as they are generated and arrive even after you close the app – with a notification.</li>
+          <li>Long-press a message to edit and resend it, regenerate the reply, forward it to another webhook or share it. Waiting for a reply can be stopped at any time.</li>
         </ul>
       </div>
       <div class="ai-page__card">
         <img src="../img/feature-servers.svg" alt="" class="ai-page__card-icon" width="88" height="88">
-        <h2 class="ai-page__card-heading">Servers and sessions</h2>
+        <h2 class="ai-page__card-heading">Webhooks and sessions</h2>
         <ul class="subpage__card-list">
-          <li>Any number of n8n servers and webhooks.</li>
+          <li>Any number of n8n webhooks – each with its own color and order.</li>
           <li>Every chat is a separate session with its own ID – your AI agent keeps the context.</li>
           <li>Older chats stay with their history and can be searched, renamed and pinned.</li>
-          <li>A home screen shortcut opens a new session of a server with one tap.</li>
+          <li>A home screen widget or shortcut opens a new session with one tap.</li>
         </ul>
       </div>
       <div class="ai-page__card">
@@ -96,7 +99,7 @@
         <ul class="subpage__card-list">
           <li>Basic, Header and JWT authentication or sign-in with your n8n account (n8n User Auth).</li>
           <li>Credentials and history are encrypted on the phone, traffic goes over HTTPS only.</li>
-          <li>Optional app lock with fingerprint, face or screen lock.</li>
+          <li>Optional app lock with fingerprint, face or screen lock – with a configurable timeout and hidden message previews.</li>
           <li>No accounts, ads or analytics – data goes only to your server.</li>
         </ul>
       </div>
@@ -105,8 +108,8 @@
         <h2 class="ai-page__card-heading">Attachments, voice and sharing</h2>
         <ul class="subpage__card-list">
           <li>Send files and photos straight from the camera, the workflow receives them as binary data.</li>
-          <li>Dictate messages by voice and have replies read aloud.</li>
-          <li>Share text or files from other apps directly into a chat.</li>
+          <li>Dictate messages by voice and have replies read aloud – or turn on hands-free mode and just talk.</li>
+          <li>Share text or files from other apps directly into a chat – including text selected in another app.</li>
         </ul>
       </div>
       <div class="ai-page__card">
@@ -120,11 +123,12 @@
       </div>
       <div class="ai-page__card">
         <img src="../img/feature-language.svg" alt="" class="ai-page__card-icon" width="88" height="88">
-        <h2 class="ai-page__card-heading">8 languages and dark mode</h2>
+        <h2 class="ai-page__card-heading">8 languages, dark mode and tablets</h2>
         <ul class="subpage__card-list">
           <li>English, Czech, Chinese, German, Spanish, French, Polish and Slovak.</li>
           <li>Language follows the phone, or pick your own.</li>
           <li>Light and dark theme following your phone settings.</li>
+          <li>On tablets the chat list and the conversation sit side by side.</li>
         </ul>
       </div>
     </div>
@@ -134,7 +138,7 @@
       <ol class="app-steps">
         <li>In n8n add the trigger <strong>On chat message</strong> and turn on <strong>Make Chat Publicly Available</strong>. Copy the <em>Chat URL</em>.</li>
         <li>Connect an <strong>AI Agent</strong> with a model and <strong>Simple Memory</strong> – both with default settings – and publish the workflow.</li>
-        <li>In the app add a server, paste the Chat URL and start chatting.</li>
+        <li>In the app add a webhook, paste the Chat URL and start chatting.</li>
       </ol>
       <p class="app-note">A detailed guide with screenshots, access protection and an advanced Webhook node setup is available in the app under the ⓘ icon.</p>
     </section>

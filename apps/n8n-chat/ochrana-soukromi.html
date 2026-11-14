@@ -40,7 +40,7 @@
   <main class="container">
     <div class="app-legal">
     <h1 class="ai-page__heading">Zásady ochrany soukromí aplikace n8n Chat</h1>
-    <p class="app-legal__meta">Účinné od 12. 11. 2026</p>
+    <p class="app-legal__meta">Účinné od 14. 11. 2026</p>
     <p>Tyto zásady popisují, jak mobilní aplikace <strong>n8n Chat</strong> pro Android (dále „aplikace“) zachází s vašimi údaji. Stručně: <strong>aplikace autorovi neposílá žádné údaje</strong>. Vše, co do ní zadáte, zůstává ve vašem telefonu nebo odchází jen na n8n server, který si sami nastavíte.</p>
 
     <h2>1. Autor a kontakt</h2>
@@ -58,7 +58,7 @@
     <h2>3. Údaje uložené v telefonu</h2>
     <p>Aplikace ukládá v telefonu tyto údaje, které do ní sami zadáte:</p>
     <ul>
-      <li><strong>nastavení serverů</strong> – název, adresu webhooku, šablonu požadavku a přihlašovací údaje podle zvolené autentizace (uživatelské jméno a heslo pro Basic, název a hodnotu hlavičky, JWT token, e-mail a přihlašovací cookie <code>n8n-auth</code> pro n8n User Auth) a volitelně API klíč n8n pro načtení odpovědí z historie běhů; <strong>heslo k účtu n8n se neukládá</strong>, použije se jen jednorázově k přihlášení,</li>
+      <li><strong>nastavení webhooků</strong> – název, adresu webhooku, šablonu požadavku a přihlašovací údaje podle zvolené autentizace (uživatelské jméno a heslo pro Basic, název a hodnotu hlavičky, JWT token, e-mail a přihlašovací cookie <code>n8n-auth</code> pro n8n User Auth) a volitelně API klíč n8n pro načtení odpovědí z historie běhů; <strong>heslo k účtu n8n se neukládá</strong>, použije se jen jednorázově k přihlášení,</li>
       <li><strong>historii chatů</strong> – vaše zprávy, odpovědi workflow a identifikátor session,</li>
       <li><strong>přílohy</strong> – kopie souborů, které odešlete, a soubory přijaté v odpovědích.</li>
     </ul>
@@ -74,8 +74,8 @@
       <li><strong>Předčítání</strong> – odpověď přečte systémový převod textu na řeč v telefonu.</li>
       <li><strong>Fotoaparát</strong> – fotku pořizuje systémová aplikace fotoaparátu a uloží ji přímo do úložiště aplikace; aplikace nemá přístup k fotoaparátu ani ke galerii.</li>
       <li><strong>Zámek aplikace</strong> – ověření (otisk prstu, obličej, zámek obrazovky) provádí Android; aplikace k biometrickým údajům nemá přístup. Při zapnutém zámku se obsah aplikace nezobrazuje v náhledu posledních aplikací ani v notifikacích.</li>
-      <li><strong>Sdílení z jiných aplikací</strong> – sdílený text a soubory se uloží do připravené zprávy a odešlou se, až zprávu sami odešlete.</li>
-      <li><strong>Zástupce na ploše</strong> – obsahuje jen název serveru a jeho interní identifikátor.</li>
+      <li><strong>Sdílení z jiných aplikací</strong> – sdílený text a soubory (i text označený v jiné aplikaci) se uloží do připravené zprávy a odešlou se, až zprávu sami odešlete.</li>
+      <li><strong>Zástupce a widget na ploše</strong> – obsahují jen název webhooku a jeho interní identifikátor.</li>
     </ul>
 
     <h2>6. Oprávnění aplikace</h2>
@@ -88,7 +88,7 @@
     <h2>7. Doba uložení a smazání</h2>
     <p>Údaje v telefonu zůstávají, dokud je nesmažete. Smazat je můžete kdykoli:</p>
     <ul>
-      <li>smazáním chatu (včetně jeho historie a příloh) nebo serveru (včetně všech jeho chatů) přímo v aplikaci,</li>
+      <li>smazáním chatu (včetně jeho historie a příloh) nebo webhooku (včetně všech jeho chatů) přímo v aplikaci,</li>
       <li>vymazáním dat aplikace v nastavení Androidu nebo odinstalováním aplikace – tím se smaže vše, včetně šifrovacího klíče.</li>
     </ul>
     <p>Údaje uložené na vašem n8n serveru (například paměť AI agenta nebo historie spuštění workflow) aplikace nespravuje; jejich smazání zajišťuje provozovatel serveru.</p>

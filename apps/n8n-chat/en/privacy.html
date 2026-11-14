@@ -40,7 +40,7 @@
   <main class="container">
     <div class="app-legal">
     <h1 class="ai-page__heading">n8n Chat Privacy Policy</h1>
-    <p class="app-legal__meta">Effective 12 November 2026</p>
+    <p class="app-legal__meta">Effective 14 November 2026</p>
     <p>This policy describes how the Android app <strong>n8n Chat</strong> (the “app”) handles your data. In short: <strong>the app sends no data to its author</strong>. Everything you enter stays on your phone or goes only to the n8n server you configure yourself.</p>
 
     <h2>1. Developer and contact</h2>
@@ -58,7 +58,7 @@
     <h2>3. Data stored on your phone</h2>
     <p>The app stores the following data that you enter yourself:</p>
     <ul>
-      <li><strong>server settings</strong> – name, webhook address, request template and credentials for the selected authentication (username and password for Basic, header name and value, JWT token, e-mail and the <code>n8n-auth</code> sign-in cookie for n8n User Auth) and optionally an n8n API key for loading replies from the execution history; <strong>your n8n account password is not stored</strong>, it is used only once to sign in,</li>
+      <li><strong>webhook settings</strong> – name, webhook address, request template and credentials for the selected authentication (username and password for Basic, header name and value, JWT token, e-mail and the <code>n8n-auth</code> sign-in cookie for n8n User Auth) and optionally an n8n API key for loading replies from the execution history; <strong>your n8n account password is not stored</strong>, it is used only once to sign in,</li>
       <li><strong>chat history</strong> – your messages, workflow replies and the session identifier,</li>
       <li><strong>attachments</strong> – copies of files you send and files received in replies.</li>
     </ul>
@@ -74,8 +74,8 @@
       <li><strong>Read aloud</strong> – replies are read by the phone’s system text-to-speech engine.</li>
       <li><strong>Camera</strong> – photos are taken by the system camera app and saved directly into the app’s storage; the app has no access to the camera or gallery.</li>
       <li><strong>App lock</strong> – verification (fingerprint, face, screen lock) is performed by Android; the app has no access to biometric data. With the lock on, app content is hidden from the recent apps preview and from notifications.</li>
-      <li><strong>Sharing from other apps</strong> – shared text and files are placed into a draft message and sent only when you send it.</li>
-      <li><strong>Home screen shortcut</strong> – contains only the server name and its internal identifier.</li>
+      <li><strong>Sharing from other apps</strong> – shared text and files (including text selected in another app) are placed into a draft message and sent only when you send it.</li>
+      <li><strong>Home screen shortcut and widget</strong> – contain only the webhook name and its internal identifier.</li>
     </ul>
 
     <h2>6. App permissions</h2>
@@ -88,7 +88,7 @@
     <h2>7. Retention and deletion</h2>
     <p>Data on your phone is kept until you delete it. You can delete it at any time:</p>
     <ul>
-      <li>by deleting a chat (including its history and attachments) or a server (including all its chats) in the app,</li>
+      <li>by deleting a chat (including its history and attachments) or a webhook (including all its chats) in the app,</li>
       <li>by clearing the app data in Android settings or uninstalling the app – this deletes everything, including the encryption key.</li>
     </ul>
     <p>Data stored on your n8n server (for example AI agent memory or workflow execution history) is not managed by the app; its deletion is the responsibility of the server operator.</p>
