@@ -95,14 +95,15 @@
     if (p.images.length > 1) gallery.append(thumbs);
 
     const info = el('div', 'eshop-detail__info');
-    info.append(el('h1', 'eshop-detail__name', p.name), el('p', 'eshop-detail__price', formatPrice(p.price)));
-    p.description.forEach(function (text) { info.append(el('p', '', text)); });
+    info.append(el('h1', 'eshop-detail__name', p.name), el('p', 'eshop-detail__price', formatPrice(p.price)), el('p', '', p.summary));
+    const more = el('div', 'eshop-detail__more');
+    p.description.forEach(function (text) { more.append(el('p', '', text)); });
     if (p.features.length) {
       const ul = el('ul', 'eshop-detail__features');
       p.features.forEach(function (text) { ul.append(el('li', '', text)); });
-      info.append(el('h2', 'eshop-detail__subheading', 'Klíčové vlastnosti'), ul);
+      more.append(el('h2', 'eshop-detail__subheading', 'Klíčové vlastnosti'), ul);
     }
-    detail.append(gallery, info);
+    detail.append(gallery, info, more);
     initOrderForm(document.getElementById('eshop-order'), p, shipping);
   }
 

@@ -135,6 +135,10 @@
   font-size: 1.5rem;
 }
 
+.eshop-detail__more {
+  grid-column: 1 / -1;
+}
+
 .eshop-detail__subheading {
   margin: 1.5rem 0 0.5rem;
   font-size: 1.1rem;
