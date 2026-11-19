@@ -14,7 +14,7 @@ Zkušenosti: Prusa Research (senior vývojář), VysokéŠkoly.cz (údržba kód
 
 ## E-shop
 
-- [E-shop](https://jankuthan.cz/eshop.html): prodej vlastních výrobků, zejména 3D tištěných náhradních dílů (např. díl VELUX 025116 T-G2 ke starším střešním oknům). Objednávka formulářem, platba převodem předem na základě faktury, doprava Zásilkovnou po ČR za 40 Kč, odeslání zpravidla v den připsání platby.
+- [E-shop](https://jankuthan.cz/eshop.html): prodej vlastních výrobků, zejména 3D tištěných náhradních dílů (např. díl VELUX 025116 T-G2 ke starším střešním oknům). Objednávka formulářem, platba převodem předem na základě faktury, doprava Zásilkovnou po ČR za 80 Kč, odeslání zpravidla v den připsání platby.
 - [Obchodní podmínky](https://jankuthan.cz/obchodni-podminky.html) a [zásady zpracování osobních údajů](https://jankuthan.cz/ochrana-osobnich-udaju.html).
 
 ## O mně

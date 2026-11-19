@@ -1,5 +1,5 @@
 {
-  "shipping": 40,
+  "shipping": 80,
   "products": [
     {
       "id": "velux-025116-t-g2",
@@ -46,6 +46,30 @@
       ],
       "images": [
         "assets/eshop/podlozka-kluzak-houpaci-zidle-graz-ot-5006/1.webp"
+      ]
+    },
+    {
+      "id": "box-na-zlate-stribrne-slitky-v-blisterech",
+      "badge": "Nové",
+      "name": "Box na zlaté/stříbrné slitky v blisterech",
+      "price": 350,
+      "summary": "3D tištěný box s víkem a vložkou s 10 sloty pro investiční slitky v blisterech formátu platební karty (85 × 55 mm).",
+      "description": [
+        "Elegantní úložný box pro investiční slitky zatavené v blisterech. Vložka má 10 svislých slotů, ve kterých blistry stojí odděleně vedle sebe. Víko se nasouvá shora a drží v jemné aretaci.",
+        "Box je navržený pro blistry formátu platební karty 85 × 55 mm, které používají např. zlaté slitky Argor-Heraeus o hmotnosti 1–100 g. Každý slot má úzkou drážku pro samotnou kartu blistru a uprostřed rozšíření pro vystouplou část se slitkem.",
+        "Box umím vytisknout i v jiných rozměrech (např. pro jiný formát blistrů nebo jiný počet slotů) a v jiné barvě – stačí se ozvat a domluvíme se."
+      ],
+      "features": [
+        "vnější rozměry zavřeného boxu: 102,6 × 103,1 × 62,5 mm",
+        "10 slotů pro blistry",
+        "drážka pro kartu blistru: šířka 2,2 mm, délka 87 mm (vejde se karta dlouhá až cca 86 mm a silná do 2 mm)",
+        "rozšíření pro slitek uprostřed slotu: šířka 6,5 mm na délce 54 mm",
+        "hloubka slotu 29 mm, v zavřeném boxu je nade dnem slotu místo pro blistr vysoký až cca 56 mm",
+        "barva: hnědá s bronzovým nádechem (na přání i jiná)",
+        "výroba: 3D tisk"
+      ],
+      "images": [
+        "assets/eshop/box-na-zlate-stribrne-slitky-v-blisterech/1.webp"
       ]
     }
   ]

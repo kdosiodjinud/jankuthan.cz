@@ -15,7 +15,7 @@ import subprocess
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 BASE_URL = 'https://jankuthan.cz/'
-GENERIC_DESC = 'Detail produktu z e-shopu Jana Kuthana. Platba převodem předem, doprava Zásilkovnou za 40 Kč.'
+GENERIC_DESC = 'Detail produktu z e-shopu Jana Kuthana. Platba převodem předem, doprava Zásilkovnou za 80 Kč.'
 
 
 def replace_once(text, old, new):
